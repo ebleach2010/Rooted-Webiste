@@ -577,7 +577,9 @@ a:hover { color: var(--accent-bright); }
   width: 130px;
   height: 130px;
   object-fit: cover;
-  object-position: top;
+  /* Vertical % nudges the crop window down the source photo — raise/lower
+     to reframe the face in the circle. */
+  object-position: 50% 12%;
   border-radius: 50%;
   margin: 0 auto 14px;
 }
