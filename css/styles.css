@@ -493,6 +493,133 @@ a:hover { color: var(--plum-bright); }
 }
 .addons strong { color: var(--bark); }
 
+/* New-client special banner */
+.special-banner {
+  background: var(--plum);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 26px 30px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow);
+}
+.special-banner h3 {
+  color: #fff;
+  font-size: 26px;
+  margin: 0 0 4px;
+}
+.special-banner p { margin: 0; color: #f3dce8; }
+.special-banner .promo-code {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: #fff;
+  color: var(--plum);
+  border-radius: 8px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+.special-banner .btn {
+  background: #fff;
+  border-color: #fff;
+  color: var(--plum);
+  flex-shrink: 0;
+}
+.special-banner .btn:hover { background: var(--parchment); border-color: var(--parchment); }
+
+/* Therapist picker */
+.therapist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 330px));
+  gap: 24px;
+  margin-top: 30px;
+}
+.therapist-card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font: inherit;
+  color: inherit;
+}
+.therapist-card:hover { border-color: var(--sage); }
+.therapist-card[aria-pressed="true"] {
+  border-color: var(--plum);
+  box-shadow: var(--shadow);
+}
+.therapist-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+}
+.therapist-card h3 { font-size: 26px; margin-bottom: 2px; }
+.therapist-card__role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 8px;
+}
+.therapist-card p { color: var(--ink-soft); font-size: 15px; margin: 0; }
+.therapist-card__badge {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+.therapist-card[aria-pressed="false"] .therapist-card__badge { visibility: hidden; }
+
+/* Compact "includes" line on service cards */
+.service__includes {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+.service__includes strong { color: var(--leaf); }
+
+/* Add-on menu grid */
+.addon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+.addon {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.addon__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.addon__head h3 { font-size: 21px; margin: 0; }
+.addon__price {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--plum);
+  white-space: nowrap;
+}
+.addon p { color: var(--ink-soft); font-size: 14px; margin: 8px 0 0; }
+
 /* ==========================================================================
    Therapist / bio
    ========================================================================== */
