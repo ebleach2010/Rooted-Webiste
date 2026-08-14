@@ -50,28 +50,35 @@ Every push to `main` redeploys automatically. Internal links are extensionless
 
 ## MangoMint hookup
 
-Everything comes from **MangoMint → Settings → Online Booking → Setup & Integration**:
+**Already live** in `js/main.js`:
+
+- Booking (all Book buttons): `https://booking.mangomint.com/rootedtherapeutics`
+- Gift cards (Buy buttons): `https://clients.mangomint.com/gift-cards/rootedtherapeutics`
+
+**Still to add** (all from MangoMint → Settings → Online Booking → Setup & Integration):
 
 1. **Script tag** → paste into the marked `MANGOMINT` comment block in the
-   `<head>` of **every** html page. This enables the in-page booking overlay.
-2. **Booking link** → set `BOOKING.default` at the top of `js/main.js`.
-   Every Book button on every page picks it up automatically.
-3. **Gift card link** → set `BOOKING.giftCards` (MangoMint's gift-card purchase
-   URL is separate from booking). The Buy buttons on `gift-cards.html` use it.
-4. **Client portal link** → set `BOOKING.portal` for the nav's Client Portal button.
-5. *(Optional, any time)* per-service deep links → fill the per-service keys in
-   `js/main.js` (`"therapeutic-90"` etc.) so each Book button jumps straight to
-   that service in MangoMint.
+   `<head>` of **every** html page. This upgrades Book buttons from new-tab
+   links to MangoMint's in-page booking overlay.
+2. **Client portal link** → set `BOOKING.portal` in `js/main.js` for the nav's
+   Client Portal button (falls back to Contact until set).
+3. *(Optional)* per-service deep links → fill the per-service keys under
+   `BOOKING.therapists.arielle` (`"signature-60"` etc.) so each button jumps
+   straight to that service; unset keys use her `default` booking link.
 
-Until a link is set, its buttons fall back to the Services page (or Contact).
+### Adding a therapist later
+
+1. In `js/main.js`, copy Arielle's block under a new key (e.g. `jordan: {...}`)
+   with that provider's MangoMint links.
+2. In `services.html`, duplicate the `.therapist-card` in the Choose Your
+   Therapist section with `data-therapist="jordan"` and `aria-pressed="false"`.
+Selecting a card re-wires every Book button to that therapist's links.
 
 ## Before launch — placeholder checklist
 
-Search the repo for `PLACEHOLDER` and `DRAFT PRICE` — every spot that needs real
-content is marked:
+Prices and the service menu are **real** (from the Aug 2026 pricing doc, matching
+the live MangoMint menu). Search the repo for `PLACEHOLDER` for what remains:
 
-- [ ] **Prices** — all prices are drafts (`DRAFT PRICE` comments in `services.html`,
-      `index.html`, `faq.html`); set the real menu
 - [ ] Phone, email, street address, hours — top strip, footer, contact page, and
       the JSON-LD block in every page's `<head>`
 - [ ] Instagram / Facebook URLs (top strip in every page)
@@ -81,8 +88,7 @@ content is marked:
 - [ ] Google Maps embed (`contact.html` — swap the placeholder div contents for the
       iframe from Google Maps → Share → Embed a map)
 - [ ] Hero tagline on `index.html` ("Bodywork that gets to the root of it" — draft)
-- [ ] Gift card expiration wording (`gift-cards.html`)
-- [ ] MangoMint: script tag + the links in `js/main.js` (see above)
+- [ ] MangoMint: script tag, portal link, optional per-service links (see above)
 - [ ] Domain: if the final domain differs from `rootedmassagebodywork.com`, update
       the `canonical`/`og:url`/`og:image`/JSON-LD URLs in every page + `sitemap.xml`
 

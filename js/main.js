@@ -1,41 +1,60 @@
 /* Rooted Massage & Bodywork — site behavior */
 
 /* ================================================================
-   MANGOMINT BOOKING LINKS
-   Fill these in from MangoMint → Settings → Online Booking →
-   Setup & Integration. Every element with class "book-btn" is wired
-   automatically from its data-book attribute:
+   MANGOMINT BOOKING LINKS — organized per therapist.
 
-     <a class="book-btn" data-book="default">      → BOOKING.default
-     <a class="book-btn" data-book="giftCards">    → BOOKING.giftCards
-     <a class="book-btn" data-book="therapeutic-90"> → per-service link
+   Every element with class "book-btn" is wired automatically:
+     data-book="signature-60"  → active therapist's link for that service
+     data-book="default"       → active therapist's general booking link
+     data-book="giftCards"     → gift-card purchase page
+     data-book="portal"        → client portal (fill in when available)
 
-   Any key left null falls back to BOOKING.default; if that is also
-   null the button keeps its normal href (the Services page).
-   You only NEED to set "default" to go live — per-service deep links
-   are optional extras you can add any time.
+   The "active therapist" is the .therapist-card with aria-pressed="true"
+   on the Services page (Arielle by default, and on pages with no picker).
+
+   TO ADD A THERAPIST LATER:
+   1. Copy Arielle's block below under a new key (e.g. jordan: {...})
+      and paste that provider's MangoMint service links into it.
+   2. Duplicate the .therapist-card in services.html with
+      data-therapist="jordan". Done — buttons re-wire on selection.
+
+   Any per-service key left null falls back to that therapist's
+   "default" link, so only "default" is required per therapist.
    ================================================================ */
 const BOOKING = {
-  default: null,        // main online-booking link
-  giftCards: null,      // MangoMint gift-card purchase link
-  portal: null,         // client portal / login link
-
-  /* Optional per-service deep links (leave null to use default): */
-  "relaxation-60": null,
-  "relaxation-90": null,
-  "therapeutic-60": null,
-  "therapeutic-90": null,
-  "therapeutic-120": null,
-  "deep-tissue-60": null,
-  "deep-tissue-90": null,
-  "lymphatic-90": null,
+  therapists: {
+    arielle: {
+      default: "https://booking.mangomint.com/rootedtherapeutics",
+      /* Optional per-service deep links — paste from MangoMint when ready: */
+      "signature-60": null,
+      "signature-90": null,
+      "signature-120": null,
+      "relax-reset-60": null,
+      "relax-reset-90": null,
+      "relax-reset-120": null,
+      "targeted-60": null,
+      "targeted-90": null,
+      "deep-tissue-90": null,
+      "deep-tissue-120": null,
+      "lymphatic-90": null,
+    },
+  },
+  giftCards: "https://clients.mangomint.com/gift-cards/rootedtherapeutics",
+  portal: null,
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  /* Wire Book buttons once links exist */
+let activeTherapist = "arielle";
+
+function wireBookButtons() {
   document.querySelectorAll(".book-btn").forEach((btn) => {
     const key = btn.dataset.book || "default";
-    const url = BOOKING[key] || BOOKING.default;
+    let url = null;
+    if (key === "giftCards" || key === "portal") {
+      url = BOOKING[key];
+    } else {
+      const t = BOOKING.therapists[activeTherapist] || {};
+      url = t[key] || t.default || null;
+    }
     if (url) {
       btn.setAttribute("href", url);
       /* Without the MangoMint script tag in <head>, open in a new tab.
@@ -44,6 +63,23 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.setAttribute("rel", "noopener");
     }
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* Therapist picker (Services page). One card today; selecting a card
+     re-wires every Book button to that therapist's links. */
+  const cards = document.querySelectorAll(".therapist-card[data-therapist]");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      activeTherapist = card.dataset.therapist;
+      cards.forEach((c) =>
+        c.setAttribute("aria-pressed", String(c === card))
+      );
+      wireBookButtons();
+    });
+  });
+
+  wireBookButtons();
 
   /* Mobile nav toggle */
   const nav = document.getElementById("siteNav");

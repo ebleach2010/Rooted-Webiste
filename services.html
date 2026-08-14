@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Massage Services &amp; Pricing | Rooted Massage &amp; Bodywork, Boise ID</title>
-  <meta name="description" content="Therapeutic, deep tissue, relaxation, and lymphatic drainage massage in Boise, Idaho. See the full Rooted Massage &amp; Bodywork menu, pricing, and add-ons — book online.">
+  <meta name="description" content="Signature custom, relax &amp; reset, targeted tension, deep tissue, and lymphatic drainage massage in Boise, Idaho. See pricing and add-ons — book online with Rooted Massage &amp; Bodywork.">
   <link rel="canonical" href="https://rootedmassagebodywork.com/services">
   <meta name="theme-color" content="#8e2456">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Massage Services &amp; Pricing — Rooted Massage &amp; Bodywork">
-  <meta property="og:description" content="Therapeutic, deep tissue, relaxation, and lymphatic massage in Boise. Book online today.">
+  <meta property="og:description" content="Five massages, six add-ons, one therapist who takes her time. Book online today.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rootedmassagebodywork.com/services">
   <meta property="og:image" content="https://rootedmassagebodywork.com/assets/og-image.jpg">
@@ -38,7 +38,7 @@
     "url": "https://rootedmassagebodywork.com/",
     "telephone": "[PLACEHOLDER phone]",
     "email": "[PLACEHOLDER email]",
-    "priceRange": "$85 - $185",
+    "priceRange": "$95 - $205",
     "areaServed": "Boise, Idaho and the Treasure Valley",
     "address": {
       "@type": "PostalAddress",
@@ -109,119 +109,96 @@
       </div>
     </section>
 
-    <!-- ============ Intro + add-ons ============ -->
-    <section class="section" id="menu">
+    <!-- ============ Step 1: Therapist ============ -->
+    <section class="section" id="therapist">
       <div class="wrap">
-        <span class="section__kicker">The Menu</span>
-        <h2 class="section__title">Massage Services</h2>
-        <p class="section__intro">Every massage at Rooted is built around what your body needs that day —
-          pressure, pacing, and focus areas are always customized, never templated. Explore the menu below
-          and book the session that fits; if you&rsquo;re not sure where to start, the Therapeutic Massage
-          is the right answer for almost everyone.</p>
+        <span class="section__kicker">Step One</span>
+        <h2 class="section__title">Choose Your Therapist</h2>
+        <p class="section__intro">Every session at Rooted is one-on-one with a licensed massage therapist.
+          Your Book buttons schedule directly with the therapist you choose.</p>
 
-        <div class="addons">
-          <!-- DRAFT PRICE: confirm add-on + extension pricing -->
-          <strong>Make it yours:</strong> enhance any session with soothing hot stones, aromatherapy with
-          essential oils, or therapeutic cupping for just <strong>$10 each</strong> — or extend your massage
-          by an extra 15 minutes for <strong>$20</strong>. Just mention add-ons when you book.
+        <div class="therapist-grid">
+          <button type="button" class="therapist-card" data-therapist="arielle" aria-pressed="true">
+            <img src="/assets/arielle.jpg" alt="Arielle, licensed massage therapist">
+            <h3>Arielle</h3>
+            <p class="therapist-card__role">Licensed Massage Therapist &middot; Owner</p>
+            <p>Advanced myofascial training, with a specialty in calming the nervous system and lymphatic
+              drainage.</p>
+            <span class="therapist-card__badge">&#10003; Selected</span>
+          </button>
+          <!-- FUTURE THERAPIST: copy the card above, change data-therapist="newname"
+               and aria-pressed="false", then add a matching entry in js/main.js. -->
         </div>
+      </div>
+    </section>
 
-        <!-- ============ Relaxation ============ -->
-        <article class="service" id="relaxation">
+    <!-- ============ Step 2: The menu ============ -->
+    <section class="section section--tint" id="menu">
+      <div class="wrap">
+        <span class="section__kicker">Step Two</span>
+        <h2 class="section__title">Pick Your Massage</h2>
+        <p class="section__intro">Five massages, each built around you. Anything listed under a massage is
+          included in the price.</p>
+
+        <!-- New client special -->
+        <aside class="special-banner">
+          <div>
+            <h3>New Client Special</h3>
+            <p>First visit? Take <strong>15% off a Signature Custom Massage</strong> plus one free add-on —
+              use code <span class="promo-code">WELCOME15</span> when booking online. One per client,
+              Signature massages only.</p>
+          </div>
+          <a class="btn book-btn" data-book="signature-60" href="#menu">Claim It</a>
+        </aside>
+
+        <!-- ============ Signature Custom ============ -->
+        <article class="service" id="signature">
           <div class="service__head">
-            <h3>Relaxation Massage</h3>
-            <span class="service__duration">60 or 90 minutes</span>
+            <h3>Signature Custom Massage</h3>
+            <span class="service__duration">60, 90, or 120 minutes &middot; light to moderate pressure</span>
           </div>
-          <!-- DRAFT PRICE -->
-          <p class="service__price">$85 <span style="font-size: 0.6em;">/ 60 min</span> &nbsp;&middot;&nbsp; $125 <span style="font-size: 0.6em;">/ 90 min</span></p>
-          <p class="service__desc">Unwind with a calming, full-body massage designed to quiet the mind and
-            settle the nervous system. Long, flowing strokes and lighter pressure ease everyday tension,
-            support circulation, and leave you feeling genuinely rested — the kind of reset a body can
-            actually hold onto.</p>
-          <div class="service__cols">
-            <div>
-              <h4>Benefits</h4>
-              <ul>
-                <li>Deep, whole-body relaxation</li>
-                <li>Eases stress and nervous-system tension</li>
-                <li>Supports healthy circulation</li>
-                <li>Relieves light muscle tightness and fatigue</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Techniques May Include</h4>
-              <ul>
-                <li>Swedish massage</li>
-                <li>Long, flowing relaxation strokes</li>
-                <li>Gentle muscle compression</li>
-                <li>Light therapeutic pressure</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Ideal For</h4>
-              <ul>
-                <li>Stress relief and self-care</li>
-                <li>First-time massage clients</li>
-                <li>Light to moderate tension</li>
-                <li>A nervous-system reset</li>
-              </ul>
-            </div>
-          </div>
+          <p class="service__price">$95 <span style="font-size: 0.6em;">/ 60</span> &nbsp;&middot;&nbsp; $145 <span style="font-size: 0.6em;">/ 90</span> &nbsp;&middot;&nbsp; $190 <span style="font-size: 0.6em;">/ 120</span></p>
+          <p class="service__desc">Rooted&rsquo;s own signature style — most closely resembles Swedish,
+            fully customized to you.</p>
+          <p class="service__includes"><strong>Make it yours:</strong> customize with any add-on from the
+            add-on menu below.</p>
           <div class="btn-row">
-            <a class="btn book-btn" data-book="relaxation-60" href="#menu">Book 60-Minute</a>
-            <a class="btn btn--ghost book-btn" data-book="relaxation-90" href="#menu">Book 90-Minute</a>
+            <a class="btn book-btn" data-book="signature-60" href="#menu">Book 60 Min</a>
+            <a class="btn btn--ghost book-btn" data-book="signature-90" href="#menu">Book 90 Min</a>
+            <a class="btn btn--ghost book-btn" data-book="signature-120" href="#menu">Book 120 Min</a>
           </div>
         </article>
 
-        <!-- ============ Therapeutic ============ -->
-        <article class="service" id="therapeutic">
+        <!-- ============ Relax & Reset ============ -->
+        <article class="service" id="relax-reset">
           <div class="service__head">
-            <h3>Therapeutic Massage</h3>
-            <span class="service__duration">60, 90, or 120 minutes</span>
+            <h3>Relax &amp; Reset Massage</h3>
+            <span class="service__duration">60, 90, or 120 minutes &middot; light to moderate pressure</span>
           </div>
-          <!-- DRAFT PRICE -->
-          <p class="service__price">$95 <span style="font-size: 0.6em;">/ 60 min</span> &nbsp;&middot;&nbsp; $140 <span style="font-size: 0.6em;">/ 90 min</span> &nbsp;&middot;&nbsp; $185 <span style="font-size: 0.6em;">/ 120 min</span></p>
-          <p class="service__desc">Our flagship session, and the right starting point for most bodies. Each
-            treatment blends restorative relaxation with focused therapeutic techniques to address muscle
-            tightness, improve mobility, and support whole-body recovery. Arielle tailors pressure, pacing,
-            and focus areas to your comfort and goals — anywhere from calming wellness maintenance to
-            comprehensive corrective bodywork.</p>
-          <div class="service__cols">
-            <div>
-              <h4>Benefits</h4>
-              <ul>
-                <li>Reduces muscle tension and stiffness</li>
-                <li>Supports nervous-system recovery</li>
-                <li>Encourages circulation and muscle recovery</li>
-                <li>Improves flexibility and mobility</li>
-                <li>Focused attention on chronic problem areas</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Techniques May Include</h4>
-              <ul>
-                <li>Swedish massage</li>
-                <li>Myofascial release</li>
-                <li>Trigger point therapy</li>
-                <li>Neuromuscular techniques</li>
-                <li>Focused corrective bodywork</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Ideal For</h4>
-              <ul>
-                <li>Monthly wellness maintenance</li>
-                <li>Chronic or recurring tension</li>
-                <li>Active people and athletes</li>
-                <li>Stress management</li>
-                <li>Mobility and physical recovery</li>
-              </ul>
-            </div>
-          </div>
+          <p class="service__price">$125 <span style="font-size: 0.6em;">/ 60</span> &nbsp;&middot;&nbsp; $160 <span style="font-size: 0.6em;">/ 90</span> &nbsp;&middot;&nbsp; $205 <span style="font-size: 0.6em;">/ 120</span></p>
+          <p class="service__desc">Nervous system&ndash;targeted therapy to calm and reset.</p>
+          <p class="service__includes"><strong>Included free:</strong> complimentary aromatherapy with every
+            session. Other add-ons available at regular price.</p>
           <div class="btn-row">
-            <a class="btn book-btn" data-book="therapeutic-60" href="#menu">Book 60-Minute</a>
-            <a class="btn btn--ghost book-btn" data-book="therapeutic-90" href="#menu">Book 90-Minute</a>
-            <a class="btn btn--ghost book-btn" data-book="therapeutic-120" href="#menu">Book 120-Minute</a>
+            <a class="btn book-btn" data-book="relax-reset-60" href="#menu">Book 60 Min</a>
+            <a class="btn btn--ghost book-btn" data-book="relax-reset-90" href="#menu">Book 90 Min</a>
+            <a class="btn btn--ghost book-btn" data-book="relax-reset-120" href="#menu">Book 120 Min</a>
+          </div>
+        </article>
+
+        <!-- ============ Targeted Tension ============ -->
+        <article class="service" id="targeted">
+          <div class="service__head">
+            <h3>Targeted Tension Massage</h3>
+            <span class="service__duration">60 or 90 minutes &middot; light to moderate pressure</span>
+          </div>
+          <p class="service__price">$95 <span style="font-size: 0.6em;">/ 60</span> &nbsp;&middot;&nbsp; $145 <span style="font-size: 0.6em;">/ 90</span></p>
+          <p class="service__desc">Focused relief for problem areas — ideal for chronic, work-related
+            tension and pain.</p>
+          <p class="service__includes"><strong>Included free:</strong> scraping.</p>
+          <div class="btn-row">
+            <a class="btn book-btn" data-book="targeted-60" href="#menu">Book 60 Min</a>
+            <a class="btn btn--ghost book-btn" data-book="targeted-90" href="#menu">Book 90 Min</a>
           </div>
         </article>
 
@@ -229,112 +206,75 @@
         <article class="service" id="deep-tissue">
           <div class="service__head">
             <h3>Deep Tissue Massage</h3>
-            <span class="service__duration">60 or 90 minutes</span>
+            <span class="service__duration">90 or 120 minutes</span>
           </div>
-          <!-- DRAFT PRICE -->
-          <p class="service__price">$105 <span style="font-size: 0.6em;">/ 60 min</span> &nbsp;&middot;&nbsp; $150 <span style="font-size: 0.6em;">/ 90 min</span></p>
-          <p class="service__desc">Slow, deliberate work into the deeper layers of muscle and fascia. This is
-            not simply a harder massage — Arielle works strategically through layers of tension, adapting
-            pressure to your comfort so stubborn knots and long-held patterns release without a fight.
-            Expect focused, communicative work and real, lasting relief.</p>
-          <div class="service__cols">
-            <div>
-              <h4>Benefits</h4>
-              <ul>
-                <li>Targets stubborn, chronic tension</li>
-                <li>Improves restricted movement</li>
-                <li>Supports recovery from training or labor</li>
-                <li>Meaningful, lasting relief</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Techniques May Include</h4>
-              <ul>
-                <li>Deep tissue techniques</li>
-                <li>Trigger point therapy</li>
-                <li>Myofascial work</li>
-                <li>Targeted compression</li>
-                <li>Assisted stretching</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Ideal For</h4>
-              <ul>
-                <li>Physically demanding work or training</li>
-                <li>Chronic or recurring muscle tension</li>
-                <li>Limited mobility or imbalance</li>
-                <li>Those who prefer firm, focused work</li>
-              </ul>
-            </div>
-          </div>
+          <p class="service__price">$155 <span style="font-size: 0.6em;">/ 90</span> &nbsp;&middot;&nbsp; $200 <span style="font-size: 0.6em;">/ 120</span></p>
+          <p class="service__desc">Slow, deliberate work through the deeper layers — its own dedicated
+            massage, not an add-on.</p>
+          <p class="service__includes"><strong>Included free:</strong> cupping and fascial scraping.</p>
           <div class="btn-row">
-            <a class="btn book-btn" data-book="deep-tissue-60" href="#menu">Book 60-Minute</a>
-            <a class="btn btn--ghost book-btn" data-book="deep-tissue-90" href="#menu">Book 90-Minute</a>
+            <a class="btn book-btn" data-book="deep-tissue-90" href="#menu">Book 90 Min</a>
+            <a class="btn btn--ghost book-btn" data-book="deep-tissue-120" href="#menu">Book 120 Min</a>
           </div>
         </article>
 
-        <!-- ============ Lymphatic ============ -->
+        <!-- ============ Lymphatic Drainage ============ -->
         <article class="service" id="lymphatic">
           <div class="service__head">
             <h3>Lymphatic Drainage Massage</h3>
             <span class="service__duration">90 minutes</span>
           </div>
-          <!-- DRAFT PRICE -->
-          <p class="service__price">$140 <span style="font-size: 0.6em;">/ 90 min</span></p>
-          <p class="service__desc">One of Arielle&rsquo;s specialties. Manual Lymphatic Drainage (MLD) uses
-            precise, rhythmic, feather-light movements that follow the body&rsquo;s natural lymphatic
-            pathways — encouraging fluid movement, easing puffiness and congestion, and producing a
-            profound sense of calm. Unlike traditional massage, MLD uses no deep pressure at all; the
-            unhurried 90-minute session covers you head to toe. Hydrate well before and after.</p>
-          <div class="service__cols">
-            <div>
-              <h4>Potential Benefits</h4>
-              <ul>
-                <li>Encourages healthy lymphatic flow</li>
-                <li>May reduce mild swelling and puffiness</li>
-                <li>Deep nervous-system relaxation</li>
-                <li>A lighter, refreshed feeling all over</li>
-              </ul>
-            </div>
-            <div>
-              <h4>What to Expect</h4>
-              <ul>
-                <li>Extremely light, rhythmic pressure</li>
-                <li>Slow, precise movements along lymph pathways</li>
-                <li>A calming, pain-free experience</li>
-                <li>A full-body, head-to-toe treatment</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Ideal For</h4>
-              <ul>
-                <li>Mild puffiness or fluid retention</li>
-                <li>Gentle, non-deep-pressure bodywork</li>
-                <li>Stress relief and relaxation</li>
-                <li>General wellness support</li>
-              </ul>
-            </div>
-          </div>
+          <p class="service__price">$160 <span style="font-size: 0.6em;">/ 90</span></p>
+          <p class="service__desc">Feather-light, rhythmic Manual Lymphatic Drainage to ease puffiness and
+            deeply calm the nervous system — one of Arielle&rsquo;s specialties.</p>
+          <p class="service__includes"><strong>Included free:</strong> fascial massage, dry brushing,
+            red light, and Gua Sha.</p>
           <div class="btn-row">
-            <a class="btn book-btn" data-book="lymphatic-90" href="#menu">Book 90-Minute</a>
+            <a class="btn book-btn" data-book="lymphatic-90" href="#menu">Book 90 Min</a>
           </div>
         </article>
 
-        <!--
-        ============ FUTURE SERVICE TEMPLATE (copy, edit, un-comment) ============
-        <article class="service" id="new-service">
-          <div class="service__head">
-            <h3>Service Name</h3>
-            <span class="service__duration">60 minutes</span>
-          </div>
-          <p class="service__price">$00 <span style="font-size: 0.6em;">/ 60 min</span></p>
-          <p class="service__desc">Description.</p>
-          <div class="btn-row">
-            <a class="btn book-btn" data-book="default" href="#menu">Book Now</a>
-          </div>
-        </article>
-        ========================================================================== -->
+      </div>
+    </section>
 
+    <!-- ============ Step 3: Add-ons ============ -->
+    <section class="section" id="add-ons">
+      <div class="wrap">
+        <span class="section__kicker">Step Three</span>
+        <h2 class="section__title">Make It Yours</h2>
+        <p class="section__intro">Add-ons are chosen when you book, right after you pick your massage.
+          Available on the Signature Custom, Relax &amp; Reset, and Targeted Tension massages —
+          Deep Tissue and Lymphatic Drainage already include their specialty treatments.</p>
+
+        <div class="addon-grid">
+          <div class="addon">
+            <div class="addon__head"><h3>Aromatherapy</h3><span class="addon__price">$5</span></div>
+            <p>Calming or uplifting essential oils to enhance relaxation and support mood. Free with every
+              Relax &amp; Reset Massage.</p>
+          </div>
+          <div class="addon">
+            <div class="addon__head"><h3>Hot Stone Therapy</h3><span class="addon__price">$10</span></div>
+            <p>Smooth, heated stones melt away muscle tension, improve circulation, and promote deeper
+              relaxation.</p>
+          </div>
+          <div class="addon">
+            <div class="addon__head"><h3>Peppermint Scalp Massage</h3><span class="addon__price">$10</span></div>
+            <p>A cooling, invigorating scalp treatment.</p>
+          </div>
+          <div class="addon">
+            <div class="addon__head"><h3>Cupping</h3><span class="addon__price">$15</span></div>
+            <p>Therapeutic cups help release deep muscle tension, improve circulation, and support mobility
+              and recovery.</p>
+          </div>
+          <div class="addon">
+            <div class="addon__head"><h3>Fascial Scraping</h3><span class="addon__price">$15</span></div>
+            <p>Targeted scraping to release fascial restrictions and tension.</p>
+          </div>
+          <div class="addon">
+            <div class="addon__head"><h3>Warm Vibration Scraping Tool</h3><span class="addon__price">$35</span></div>
+            <p>A specialized warm, vibrating scraping tool for deeper release and recovery.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -352,12 +292,13 @@
           </article>
           <article class="card">
             <h3>First Visit?</h3>
-            <p>Arrive a few minutes early for a short health intake, and we&rsquo;ll talk through what your
-              body needs before the session starts. See the <a href="/faq">FAQ</a> for more.</p>
+            <p>Arrive a few minutes early for a short health intake — and don&rsquo;t forget your
+              <strong>WELCOME15</strong> discount on a Signature Custom Massage. See the
+              <a href="/faq">FAQ</a> for more.</p>
           </article>
           <article class="card">
             <h3>Gift Cards</h3>
-            <p>Massage makes a wonderful gift. Digital gift cards are available online any time —
+            <p>Massage makes a wonderful gift. E-gift cards are available online any time —
               <a href="/gift-cards">grab one here</a>.</p>
           </article>
         </div>
@@ -367,8 +308,8 @@
     <!-- ============ CTA band ============ -->
     <section class="cta-band">
       <h2>Not Sure Which to Choose?</h2>
-      <p>Book a Therapeutic Massage and tell Arielle what&rsquo;s going on — every session is tailored
-        from there. Or reach out and ask; we&rsquo;re happy to point you the right way.</p>
+      <p>Start with the Signature Custom Massage and tell Arielle what&rsquo;s going on — every session is
+        tailored from there. Or reach out and ask; we&rsquo;re happy to point you the right way.</p>
       <div class="btn-row" style="justify-content: center;">
         <a class="btn btn--big book-btn" data-book="default" href="#menu">Book Now</a>
         <a class="btn btn--big btn--ghost" href="/contact" style="color: #f0e7d3; border-color: #f0e7d3;">Ask a Question</a>
