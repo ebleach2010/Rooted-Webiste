@@ -14,9 +14,9 @@
   --card:           #fdfaf3;  /* cards */
 
   /* Brand accents (sampled from the logo) */
-  --plum:        #8e2456;  /* primary accent — "Rooted" wordmark */
-  --plum-bright: #a02362;  /* hover / highlights */
-  --bark:        #48361b;  /* dark brown — subtitle text, footer */
+  --accent:        #3e5c41;  /* primary accent — deep forest green (buttons, links, banners) */
+  --accent-bright: #4e7050;  /* hover / highlights */
+  --bark:        #48361b;  /* dark brown — subtitle text, footer, prices */
   --bark-deep:   #34160c;  /* darkest brown — contact strip, vignette */
   --bark-soft:   #6f5b3e;  /* secondary brown */
   --sage:        #a4ac92;  /* soft green accents */
@@ -68,8 +68,8 @@ h1, h2, h3, h4 {
 
 p { margin: 0 0 1em; }
 
-a { color: var(--plum); }
-a:hover { color: var(--plum-bright); }
+a { color: var(--accent); }
+a:hover { color: var(--accent-bright); }
 
 .wrap {
   max-width: var(--wrap);
@@ -145,7 +145,7 @@ a:hover { color: var(--plum-bright); }
   font-family: var(--font-display);
   font-size: 30px;
   font-weight: 700;
-  color: var(--plum);
+  color: var(--accent);
   letter-spacing: 0.5px;
 }
 .brand__text small {
@@ -173,19 +173,19 @@ a:hover { color: var(--plum-bright); }
   padding: 6px 2px;
   border-bottom: 2px solid transparent;
 }
-.nav a:hover { color: var(--plum); }
+.nav a:hover { color: var(--accent); }
 .nav a[aria-current="page"] {
-  color: var(--plum);
-  border-bottom-color: var(--plum);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 .nav a.nav__book {
-  background: var(--plum);
+  background: var(--accent);
   color: #fff;
   padding: 10px 20px;
   border-radius: var(--radius-pill);
   border-bottom: none;
 }
-.nav a.nav__book:hover { background: var(--plum-bright); color: #fff; }
+.nav a.nav__book:hover { background: var(--accent-bright); color: #fff; }
 
 /* Mobile nav toggle */
 .nav-toggle {
@@ -237,7 +237,7 @@ a:hover { color: var(--plum-bright); }
    ========================================================================== */
 .btn {
   display: inline-block;
-  background: var(--plum);
+  background: var(--accent);
   color: #fff;
   font-family: var(--font-body);
   font-size: 13px;
@@ -248,16 +248,16 @@ a:hover { color: var(--plum-bright); }
   text-align: center;
   padding: 13px 28px;
   border-radius: var(--radius-pill);
-  border: 2px solid var(--plum);
+  border: 2px solid var(--accent);
   transition: background 0.15s ease, color 0.15s ease;
 }
-.btn:hover { background: var(--plum-bright); border-color: var(--plum-bright); color: #fff; }
+.btn:hover { background: var(--accent-bright); border-color: var(--accent-bright); color: #fff; }
 
 .btn--ghost {
   background: transparent;
-  color: var(--plum);
+  color: var(--accent);
 }
-.btn--ghost:hover { background: var(--plum); color: #fff; }
+.btn--ghost:hover { background: var(--accent); color: #fff; }
 
 .btn--bark {
   background: var(--bark);
@@ -408,10 +408,10 @@ a:hover { color: var(--plum-bright); }
 }
 .card h3 { font-size: 26px; margin-bottom: 4px; }
 .card__price {
-  font-family: var(--font-display);
-  font-size: 21px;
-  font-weight: 700;
-  color: var(--plum);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bark);
   margin-bottom: 12px;
 }
 .card p { color: var(--ink-soft); }
@@ -438,12 +438,31 @@ a:hover { color: var(--plum-bright); }
   font-size: 19px;
   color: var(--bark-soft);
 }
-.service__price {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 38px);
-  font-weight: 700;
-  color: var(--plum);
-  margin: 10px 0 16px;
+/* Price chips — "$95 · 60 min" pairs in the clean body font */
+.price-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+.price-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  background: var(--parchment-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 9px 18px;
+  font-family: var(--font-body);
+}
+.price-pill strong {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--bark);
+}
+.price-pill span {
+  font-size: 13.5px;
+  color: var(--ink-soft);
 }
 .service__desc { color: var(--ink-soft); max-width: 840px; }
 
@@ -495,7 +514,7 @@ a:hover { color: var(--plum-bright); }
 
 /* New-client special banner */
 .special-banner {
-  background: var(--plum);
+  background: var(--accent);
   color: #fff;
   border-radius: var(--radius);
   padding: 26px 30px;
@@ -512,13 +531,13 @@ a:hover { color: var(--plum-bright); }
   font-size: 26px;
   margin: 0 0 4px;
 }
-.special-banner p { margin: 0; color: #f3dce8; }
+.special-banner p { margin: 0; color: #dde8d6; }
 .special-banner .promo-code {
   font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: 2px;
   background: #fff;
-  color: var(--plum);
+  color: var(--accent);
   border-radius: 8px;
   padding: 3px 10px;
   white-space: nowrap;
@@ -526,7 +545,7 @@ a:hover { color: var(--plum-bright); }
 .special-banner .btn {
   background: #fff;
   border-color: #fff;
-  color: var(--plum);
+  color: var(--accent);
   flex-shrink: 0;
 }
 .special-banner .btn:hover { background: var(--parchment); border-color: var(--parchment); }
@@ -551,7 +570,7 @@ a:hover { color: var(--plum-bright); }
 }
 .therapist-card:hover { border-color: var(--sage); }
 .therapist-card[aria-pressed="true"] {
-  border-color: var(--plum);
+  border-color: var(--accent);
   box-shadow: var(--shadow);
 }
 .therapist-card img {
@@ -579,7 +598,7 @@ a:hover { color: var(--plum-bright); }
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--plum);
+  color: var(--accent);
 }
 .therapist-card[aria-pressed="false"] .therapist-card__badge { visibility: hidden; }
 
@@ -612,10 +631,10 @@ a:hover { color: var(--plum-bright); }
 }
 .addon__head h3 { font-size: 21px; margin: 0; }
 .addon__price {
-  font-family: var(--font-display);
-  font-size: 21px;
-  font-weight: 700;
-  color: var(--plum);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--bark);
   white-space: nowrap;
 }
 .addon p { color: var(--ink-soft); font-size: 14px; margin: 8px 0 0; }
@@ -688,7 +707,7 @@ a:hover { color: var(--plum-bright); }
   transform: translateY(-50%);
   font-family: var(--font-body);
   font-size: 22px;
-  color: var(--plum);
+  color: var(--accent);
 }
 .faq-list details[open] summary::after { content: "\2212"; }
 .faq-list details p {
