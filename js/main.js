@@ -1,7 +1,7 @@
-/* Rooted Massage & Bodywork — site behavior */
+/* Rooted Massage & Bodywork: site behavior */
 
 /* ================================================================
-   MANGOMINT BOOKING LINKS — organized per therapist.
+   MANGOMINT BOOKING LINKS, organized per therapist.
 
    Every element with class "book-btn" is wired automatically:
      data-book="signature-60"  → active therapist's link for that service
@@ -16,7 +16,7 @@
    1. Copy Arielle's block below under a new key (e.g. jordan: {...})
       and paste that provider's MangoMint service links into it.
    2. Duplicate the .therapist-card in services.html with
-      data-therapist="jordan". Done — buttons re-wire on selection.
+      data-therapist="jordan". Done. Buttons re-wire on selection.
 
    Any per-service key left null falls back to that therapist's
    "default" link, so only "default" is required per therapist.
@@ -25,7 +25,7 @@ const BOOKING = {
   therapists: {
     arielle: {
       default: "https://booking.mangomint.com/rootedtherapeutics",
-      /* Optional per-service deep links — paste from MangoMint when ready: */
+      /* Optional per-service deep links. Paste from MangoMint when ready: */
       "signature-60": null,
       "signature-90": null,
       "signature-120": null,
@@ -44,7 +44,7 @@ const BOOKING = {
 };
 
 /* ================================================================
-   EMAIL SIGN-UP POP-UP — trades the new-client discount code for an
+   EMAIL SIGN-UP POP-UP. Trades the new-client discount code for an
    email address, so people join the list even if they don't book now.
 
    TO GO LIVE, set `endpoint` below to your email platform's form URL:
@@ -58,7 +58,7 @@ const BOOKING = {
      Formspree / Zapier / Make → mode "json", field "email".
 
    Until an endpoint is set, the form still shows the code and opens a
-   pre-filled email to fallbackMailto so no address is lost — but nothing
+   pre-filled email to fallbackMailto so no address is lost, but nothing
    lands in a list automatically. Set the endpoint before launch.
    ================================================================ */
 const EMAIL_SIGNUP = {
@@ -114,11 +114,33 @@ function readSignupState() {
   }
 }
 
+/* Same person, slightly different typing: Bob@Gmail.com, bob+spa@gmail.com and
+   b.o.b@gmail.com are all one address. Gmail ignores dots and +tags, so we
+   fold those before comparing. Other providers only get case folded. */
+function normalizeEmail(raw) {
+  const value = String(raw || "").trim().toLowerCase();
+  const at = value.lastIndexOf("@");
+  if (at < 0) return value;
+  let user = value.slice(0, at);
+  const domain = value.slice(at + 1);
+  user = user.split("+")[0];
+  if (domain === "gmail.com" || domain === "googlemail.com") {
+    user = user.replace(/\./g, "");
+    return `${user}@gmail.com`;
+  }
+  return `${user}@${domain}`;
+}
+
+function hasClaimed(email) {
+  const claimed = readSignupState().claimed || [];
+  return claimed.includes(normalizeEmail(email));
+}
+
 function writeSignupState(state) {
   try {
     localStorage.setItem(SIGNUP_STORE, JSON.stringify(state));
   } catch {
-    /* private browsing — the pop-up just reappears next visit */
+    /* private browsing. The pop-up just reappears next visit */
   }
 }
 
@@ -138,8 +160,7 @@ function buildSignupDialog() {
         <p class="signup__kicker">New Client Offer</p>
         <h2 class="signup__title" id="signupTitle">Take 15% Off Your First Massage</h2>
         <p class="signup__body" id="signupBody">Plus one free add-on on a Signature Custom Massage.
-          Drop your email and we&rsquo;ll send your code &mdash; along with the occasional note on
-          seasonal offers and openings. No spam, unsubscribe any time.</p>
+          Tell us where to send your code and it&rsquo;s yours.</p>
 
         <form class="signup__form" novalidate>
           <label class="signup__label" for="signupEmail">Email address</label>
@@ -151,14 +172,14 @@ function buildSignupDialog() {
                  autocomplete="off" aria-hidden="true">
           <button class="btn signup__submit" type="submit">Send My Code</button>
         </form>
-        <button class="signup__decline" type="button" data-signup-close>No thanks &mdash; maybe another time</button>
+        <button class="signup__decline" type="button" data-signup-close>No thanks, maybe another time</button>
       </div>
 
       <div class="signup__step" data-step="done" hidden>
-        <p class="signup__kicker">You&rsquo;re On The List</p>
+        <p class="signup__kicker" data-signup-kicker>All Set</p>
         <h2 class="signup__title">Here&rsquo;s Your Code</h2>
-        <p class="signup__body">Use it when you book online &mdash; 15% off a Signature Custom Massage
-          plus one free add-on. One use per client.</p>
+        <p class="signup__body" data-signup-donetext>Use it when you book online for 15% off a
+          Signature Custom Massage plus one free add-on. One use per client.</p>
         <p class="signup__code"><span data-signup-code>WELCOME15</span></p>
         <button class="signup__copy" type="button" data-signup-copy>Copy code</button>
         <a class="btn signup__submit book-btn" data-book="signature-60" href="/services#signature">Book Now</a>
@@ -191,9 +212,27 @@ function initSignup() {
   const isOpen = () => !modal.hidden;
   const subscribed = () => readSignupState().status === "subscribed";
 
-  function showStep(name) {
+  const kickerEl = modal.querySelector("[data-signup-kicker]");
+  const doneTextEl = modal.querySelector("[data-signup-donetext]");
+  const doneCopy = {
+    fresh: {
+      kicker: "All Set",
+      text: "Use it when you book online for 15% off a Signature Custom Massage plus one free add-on. One use per client.",
+    },
+    repeat: {
+      kicker: "You Already Have This One",
+      text: "That address is already signed up, so here&rsquo;s the same code again. It&rsquo;s good for one visit, on a Signature Custom Massage.",
+    },
+  };
+
+  function showStep(name, opts) {
     stepForm.hidden = name !== "form";
     stepDone.hidden = name !== "done";
+    if (name === "done") {
+      const copy = doneCopy[opts && opts.repeat ? "repeat" : "fresh"];
+      kickerEl.textContent = copy.kicker;
+      doneTextEl.innerHTML = copy.text;
+    }
   }
 
   function openSignup(step) {
@@ -274,10 +313,10 @@ function initSignup() {
   /* ---- Submission ---- */
   async function sendToList(email) {
     if (!EMAIL_SIGNUP.endpoint) {
-      /* No platform wired up yet — hand the address off by email instead of
+      /* No platform wired up yet. Hand the address off by email instead of
          dropping it. Remove once EMAIL_SIGNUP.endpoint is set. */
       console.warn(
-        "EMAIL_SIGNUP.endpoint is not set — falling back to a mailto draft. " +
+        "EMAIL_SIGNUP.endpoint is not set. Falling back to a mailto draft. " +
           "Paste your email platform's form URL into js/main.js to collect addresses automatically."
       );
       const subject = encodeURIComponent("New client list sign-up");
@@ -303,7 +342,7 @@ function initSignup() {
     }
 
     /* Classic form POST. Mailchimp and friends don't send CORS headers, so
-       the response is opaque — a resolved fetch is our success signal. */
+       the response is opaque, so a resolved fetch is our success signal. */
     const data = new FormData();
     data.append(EMAIL_SIGNUP.emailField, email);
     Object.entries(EMAIL_SIGNUP.extraFields).forEach(([k, v]) => data.append(k, v));
@@ -326,8 +365,14 @@ function initSignup() {
       return;
     }
     if (trap.value) {
-      /* Bot filled the honeypot — show success, send nothing. */
+      /* Bot filled the honeypot. Show success, send nothing. */
       showStep("done");
+      return;
+    }
+    if (hasClaimed(email)) {
+      /* Already signed up on this browser. Hand back the code without
+         posting a duplicate to the list. */
+      showStep("done", { repeat: true });
       return;
     }
 
@@ -335,7 +380,12 @@ function initSignup() {
     submit.textContent = "Sending…";
     try {
       await sendToList(email);
-      writeSignupState({ status: "subscribed", email, at: Date.now() });
+      const state = readSignupState();
+      writeSignupState({
+        status: "subscribed",
+        at: Date.now(),
+        claimed: [...new Set([...(state.claimed || []), normalizeEmail(email)])],
+      });
       showStep("done");
       wireBookButtons();
       const copy = modal.querySelector("[data-signup-copy]");
