@@ -80,8 +80,8 @@ Prices, the service menu, per-service booking deep links, phone, and address are
 **real** (matching the live MangoMint setup). Search the repo for `PLACEHOLDER`
 for what remains:
 
-- [ ] Email address + business hours — top strip, footer, contact page, JSON-LD
-      (phone/address are done; socials intentionally omitted for now)
+- [x] Contact info complete: phone, email, address, and hours are live
+      (socials intentionally omitted for now)
 - [ ] Arielle's bio paragraphs (`arielle.html`, intro on `index.html`)
 - [ ] FAQ answers: cancellation policy, HSA/FSA, parking/location, gratuity
 - [ ] Cancellation policy line (footer of every page + services/faq pages)
