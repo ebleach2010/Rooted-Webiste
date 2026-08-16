@@ -68,7 +68,7 @@ const EMAIL_SIGNUP = {
   extraFields: {},            /* e.g. { g: "ABC123" } for a Klaviyo list id */
   fallbackMailto: "hello@example.com", /* PLACEHOLDER: real inbox */
 
-  promoCode: "WELCOME15",
+  promoCode: "ROOTED410",
   offerLine: "15% off a Signature Custom Massage + one free add-on",
 
   /* When it appears (first match wins), and how long a dismissal sticks. */
@@ -180,7 +180,7 @@ function buildSignupDialog() {
         <h2 class="signup__title">Here&rsquo;s Your Code</h2>
         <p class="signup__body" data-signup-donetext>Use it when you book online for 15% off a
           Signature Custom Massage plus one free add-on. One use per client.</p>
-        <p class="signup__code"><span data-signup-code>WELCOME15</span></p>
+        <p class="signup__code"><span data-signup-code>ROOTED410</span></p>
         <button class="signup__copy" type="button" data-signup-copy>Copy code</button>
         <a class="btn signup__submit book-btn" data-book="signature-60" href="/services#signature">Book Now</a>
         <button class="signup__decline" type="button" data-signup-close>Maybe later</button>
