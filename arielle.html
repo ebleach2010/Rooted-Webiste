@@ -22,11 +22,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- ================================================================
-       MANGOMINT: paste your integration script tag on the line below.
-       (Same tag as index.html — it goes on every page with Book buttons.)
-       ================================================================ -->
-  <!-- <script ...mangomint script tag goes here... ></script> -->
+  <!-- MangoMint booking overlay — installed. Book buttons open the scheduler
+       in-page; remove these two lines to fall back to new-tab booking. -->
+  <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 630678;</script>
+  <script src="https://booking.mangomint.com/app.js" async></script>
 
   <script type="application/ld+json">
   {
