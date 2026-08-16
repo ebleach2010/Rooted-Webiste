@@ -103,7 +103,7 @@ a:hover { color: var(--accent-bright); }
   padding: 7px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
   flex-wrap: wrap;
 }

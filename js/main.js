@@ -25,18 +25,21 @@ const BOOKING = {
   therapists: {
     arielle: {
       default: "https://booking.mangomint.com/rootedtherapeutics",
-      /* Optional per-service deep links — paste from MangoMint when ready: */
-      "signature-60": null,
-      "signature-90": null,
-      "signature-120": null,
-      "relax-reset-60": null,
-      "relax-reset-90": null,
-      "relax-reset-120": null,
-      "targeted-60": null,
-      "targeted-90": null,
-      "deep-tissue-90": null,
-      "deep-tissue-120": null,
-      "lymphatic-90": null,
+      /* Per-service deep links — client lands directly on that massage.
+         If a service is renamed/re-created in MangoMint its serviceId
+         changes: Settings → Services → [service] → Online Booking →
+         Direct link. All durations of a service share one link. */
+      "signature-60": "https://booking.mangomint.com/rootedtherapeutics?serviceId=7",
+      "signature-90": "https://booking.mangomint.com/rootedtherapeutics?serviceId=7",
+      "signature-120": "https://booking.mangomint.com/rootedtherapeutics?serviceId=7",
+      "relax-reset-60": "https://booking.mangomint.com/rootedtherapeutics?serviceId=10",
+      "relax-reset-90": "https://booking.mangomint.com/rootedtherapeutics?serviceId=10",
+      "relax-reset-120": "https://booking.mangomint.com/rootedtherapeutics?serviceId=10",
+      "targeted-60": "https://booking.mangomint.com/rootedtherapeutics?serviceId=13",
+      "targeted-90": "https://booking.mangomint.com/rootedtherapeutics?serviceId=13",
+      "deep-tissue-90": "https://booking.mangomint.com/rootedtherapeutics?serviceId=15",
+      "deep-tissue-120": "https://booking.mangomint.com/rootedtherapeutics?serviceId=15",
+      "lymphatic-90": "https://booking.mangomint.com/rootedtherapeutics?serviceId=17",
     },
   },
   giftCards: "https://clients.mangomint.com/gift-cards/rootedtherapeutics",
