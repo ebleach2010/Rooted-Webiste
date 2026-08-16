@@ -76,12 +76,12 @@ Selecting a card re-wires every Book button to that therapist's links.
 
 ## Before launch — placeholder checklist
 
-Prices and the service menu are **real** (from the Aug 2026 pricing doc, matching
-the live MangoMint menu). Search the repo for `PLACEHOLDER` for what remains:
+Prices, the service menu, per-service booking deep links, phone, and address are
+**real** (matching the live MangoMint setup). Search the repo for `PLACEHOLDER`
+for what remains:
 
-- [ ] Phone, email, street address, hours — top strip, footer, contact page, and
-      the JSON-LD block in every page's `<head>`
-- [ ] Instagram / Facebook URLs (top strip in every page)
+- [ ] Email address + business hours — top strip, footer, contact page, JSON-LD
+      (phone/address are done; socials intentionally omitted for now)
 - [ ] Arielle's bio paragraphs (`arielle.html`, intro on `index.html`)
 - [ ] FAQ answers: cancellation policy, HSA/FSA, parking/location, gratuity
 - [ ] Cancellation policy line (footer of every page + services/faq pages)
