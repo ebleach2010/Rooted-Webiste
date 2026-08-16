@@ -60,10 +60,12 @@ function wireBookButtons() {
     }
     if (url) {
       btn.setAttribute("href", url);
-      /* Without the MangoMint script tag in <head>, open in a new tab.
-         With it, MangoMint intercepts the click and opens its overlay. */
-      btn.setAttribute("target", "_blank");
-      btn.setAttribute("rel", "noopener");
+      /* With the MangoMint overlay script in <head>, clicks open the
+         in-page scheduler; only fall back to a new tab without it. */
+      if (!window.Mangomint) {
+        btn.setAttribute("target", "_blank");
+        btn.setAttribute("rel", "noopener");
+      }
     }
   });
 }
