@@ -845,3 +845,179 @@ a:hover { color: var(--accent-bright); }
 }
 .notfound img { width: 180px; margin: 0 auto 24px; }
 .notfound h1 { font-size: 54px; }
+
+/* ==========================================================================
+   Email sign-up pop-up (markup is injected by js/main.js)
+   ========================================================================== */
+.signup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.signup[hidden] { display: none; }
+body.signup-open { overflow: hidden; }
+
+.signup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 22, 12, 0.62);
+  backdrop-filter: blur(2px);
+  animation: signup-fade 0.25s ease-out;
+}
+
+.signup__panel {
+  position: relative;
+  width: min(460px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(52, 22, 12, 0.32);
+  padding: 34px 32px 28px;
+  text-align: center;
+  animation: signup-rise 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.signup__close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: 0;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.signup__close:hover { color: var(--bark); background: var(--parchment); }
+
+.signup__mark {
+  width: 62px;
+  margin: 0 auto 14px;
+}
+
+.signup__kicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin: 0 0 6px;
+}
+.signup__title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--bark-deep);
+  margin: 0 0 10px;
+}
+.signup__body {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+
+.signup__form { text-align: left; }
+.signup__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bark);
+  margin-bottom: 6px;
+}
+.signup__input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.signup__input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+.signup__error {
+  color: #9b3226;
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+/* Bot trap — off-screen rather than display:none so bots still see it. */
+.signup__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.signup__submit {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+.signup__submit[disabled] { opacity: 0.6; cursor: progress; }
+
+.signup__decline {
+  background: none;
+  border: 0;
+  margin-top: 14px;
+  padding: 4px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.signup__decline:hover { color: var(--bark); }
+
+.signup__code {
+  font-family: var(--font-body);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--accent);
+  background: var(--parchment-deep);
+  border: 1px dashed var(--accent);
+  border-radius: 10px;
+  padding: 14px 10px;
+  margin: 0 0 12px;
+}
+.signup__copy {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 7px 18px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--bark);
+  cursor: pointer;
+}
+.signup__copy:hover { background: var(--parchment); }
+
+@keyframes signup-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes signup-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signup__backdrop, .signup__panel { animation: none; }
+}
+
+@media (max-width: 480px) {
+  .signup__panel { padding: 28px 22px 24px; }
+  .signup__title { font-size: 28px; }
+  .signup__code { font-size: 22px; letter-spacing: 3px; }
+}
