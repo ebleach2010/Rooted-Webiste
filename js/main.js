@@ -95,7 +95,7 @@ function initPromoPopup() {
     wrap.innerHTML =
       '<div class="promo-popup__card">' +
       '<button type="button" class="promo-popup__close" aria-label="Close">&times;</button>' +
-      '<img src="/assets/logo-mark.png" alt="">' +
+      '<img src="assets/logo-mark.png" alt="">' +
       "<h3>Take 15% Off Your First Massage</h3>" +
       "<p>Join our email list and we&rsquo;ll send you a discount code for 15% off a " +
       "Signature Custom Massage. New clients only, one use per client.</p>" +
