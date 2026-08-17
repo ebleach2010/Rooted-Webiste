@@ -845,6 +845,71 @@ a:hover { color: var(--accent-bright); }
 }
 
 /* ==========================================================================
+   Promo popup (injected by js/main.js after 10s)
+   ========================================================================== */
+.promo-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(52, 22, 12, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+.promo-popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.promo-popup__card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 440px;
+  width: 100%;
+  padding: 36px 32px 28px;
+  text-align: center;
+  position: relative;
+  transform: translateY(18px);
+  transition: transform 0.5s ease;
+}
+.promo-popup.is-visible .promo-popup__card { transform: none; }
+.promo-popup__card img {
+  width: 84px;
+  margin: 0 auto 12px;
+}
+.promo-popup__card h3 { font-size: 28px; }
+.promo-popup__card p { color: var(--ink-soft); }
+.promo-popup__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  padding: 6px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.promo-popup__close:hover { color: var(--ink); }
+.promo-popup__no {
+  background: none;
+  border: none;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-popup, .promo-popup__card { transition: none; }
+}
+
+/* ==========================================================================
    404
    ========================================================================== */
 .notfound {

@@ -70,7 +70,71 @@ function wireBookButtons() {
   });
 }
 
+/* ================================================================
+   PROMO POPUP: fades in 10s after arrival, links to the email-signup
+   form that reveals the discount code. Shows at most once per visitor
+   per week (tracked in localStorage). Not included on 404.html because
+   that page doesn't load this script.
+   ================================================================ */
+const PROMO_URL = "https://mangomint.co/MT9obD";
+const PROMO_DELAY_MS = 10000;
+const PROMO_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
+
+function initPromoPopup() {
+  const KEY = "rootedPromoSeen";
+  try {
+    if (Date.now() - Number(localStorage.getItem(KEY) || 0) < PROMO_COOLDOWN_MS) return;
+  } catch (e) { /* storage unavailable: still show */ }
+
+  setTimeout(() => {
+    const wrap = document.createElement("div");
+    wrap.className = "promo-popup";
+    wrap.setAttribute("role", "dialog");
+    wrap.setAttribute("aria-modal", "true");
+    wrap.setAttribute("aria-label", "New client special");
+    wrap.innerHTML =
+      '<div class="promo-popup__card">' +
+      '<button type="button" class="promo-popup__close" aria-label="Close">&times;</button>' +
+      '<img src="/assets/logo-mark.png" alt="">' +
+      "<h3>Take 15% Off Your First Massage</h3>" +
+      "<p>Join our email list and we&rsquo;ll send you a discount code for 15% off a " +
+      "Signature Custom Massage. New clients only, one use per client.</p>" +
+      '<a class="btn btn--big promo-popup__cta" href="' + PROMO_URL + '" target="_blank" rel="noopener">Get My Code</a>' +
+      '<br><button type="button" class="promo-popup__no">No thanks</button>' +
+      "</div>";
+    document.body.appendChild(wrap);
+    /* Tiny delay so the browser paints the hidden state first, making the
+       CSS fade run. A timeout (not rAF) so it also fires in hidden tabs. */
+    setTimeout(() => wrap.classList.add("is-visible"), 50);
+
+    const markSeen = () => {
+      try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+    };
+    const close = () => {
+      markSeen();
+      wrap.classList.remove("is-visible");
+      setTimeout(() => wrap.remove(), 500);
+    };
+    wrap.addEventListener("click", (e) => { if (e.target === wrap) close(); });
+    wrap.querySelector(".promo-popup__close").addEventListener("click", close);
+    wrap.querySelector(".promo-popup__no").addEventListener("click", close);
+    wrap.querySelector(".promo-popup__cta").addEventListener("click", () => {
+      markSeen();
+      wrap.classList.remove("is-visible");
+      setTimeout(() => wrap.remove(), 500);
+    });
+    document.addEventListener("keydown", function esc(e) {
+      if (e.key === "Escape") {
+        close();
+        document.removeEventListener("keydown", esc);
+      }
+    });
+  }, PROMO_DELAY_MS);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initPromoPopup();
+
   /* Therapist picker (Services page). One card today; selecting a card
      re-wires every Book button to that therapist's links. */
   const cards = document.querySelectorAll(".therapist-card[data-therapist]");
