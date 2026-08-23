@@ -745,8 +745,9 @@ a:hover { color: var(--accent-bright); }
 .contact-block li { padding: 4px 0; color: var(--ink-soft); }
 .contact-map {
   background: var(--parchment-deep);
-  border: 1px dashed var(--sage);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
+  overflow: hidden;
   min-height: 320px;
   display: flex;
   align-items: center;
