@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Rooted Massage & Bodywork — design system + layout
+   Rooted Massage & Bodywork: design system + layout
    Structure modeled on en-spa.com (top contact strip, horizontal nav,
    hero band, service cards, accordion FAQ) restyled to the Rooted brand.
    ========================================================================== */
 
 /* ---- Design tokens -------------------------------------------------------
-   The whole palette lives here — sampled from the Rooted logo set.
+   The whole palette lives here, sampled from the Rooted logo set.
    Tune these and the entire site follows. */
 :root {
   /* Parchment & surfaces */
@@ -14,13 +14,13 @@
   --card:           #fdfaf3;  /* cards */
 
   /* Brand accents (sampled from the logo) */
-  --accent:        #3e5c41;  /* primary accent — deep forest green (buttons, links, banners) */
+  --accent:        #3e5c41;  /* primary accent: deep forest green (buttons, links, banners) */
   --accent-bright: #4e7050;  /* hover / highlights */
-  --bark:        #48361b;  /* dark brown — subtitle text, footer, prices */
-  --bark-deep:   #34160c;  /* darkest brown — contact strip, vignette */
+  --bark:        #48361b;  /* dark brown: subtitle text, footer, prices */
+  --bark-deep:   #34160c;  /* darkest brown: contact strip, vignette */
   --bark-soft:   #6f5b3e;  /* secondary brown */
   --sage:        #a4ac92;  /* soft green accents */
-  --leaf:        #5f7250;  /* deeper green — links, icons */
+  --leaf:        #5f7250;  /* deeper green: links, icons */
 
   /* Text */
   --ink:      #322a1e;
@@ -28,8 +28,8 @@
   --line:     #ddd2b8;
 
   /* Type */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Layout */
   --wrap: 1120px;
@@ -370,7 +370,7 @@ a:hover { color: var(--accent-bright); }
 .section--center { text-align: center; }
 .section--center .section__intro { margin-left: auto; margin-right: auto; }
 
-/* Twig divider — echoes the wreath */
+/* Twig divider, echoes the wreath */
 .divider {
   display: flex;
   align-items: center;
@@ -438,7 +438,7 @@ a:hover { color: var(--accent-bright); }
   font-size: 19px;
   color: var(--bark-soft);
 }
-/* Price chips — "$95 · 60 min" pairs in the clean body font */
+/* Price chips, "$95 · 60 min" pairs in the clean body font */
 .price-row {
   display: flex;
   flex-wrap: wrap;
@@ -745,8 +745,9 @@ a:hover { color: var(--accent-bright); }
 .contact-block li { padding: 4px 0; color: var(--ink-soft); }
 .contact-map {
   background: var(--parchment-deep);
-  border: 1px dashed var(--sage);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
+  overflow: hidden;
   min-height: 320px;
   display: flex;
   align-items: center;
@@ -845,76 +846,116 @@ a:hover { color: var(--accent-bright); }
 }
 
 /* ==========================================================================
-   Promo popup (injected by js/main.js after 10s)
+   Email sign-up pop-up (markup is injected by js/main.js)
    ========================================================================== */
-.promo-popup {
+.signup {
   position: fixed;
   inset: 0;
-  z-index: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 200;
+  display: grid;
+  place-items: center;
   padding: 20px;
-  background: rgba(52, 22, 12, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s;
 }
-.promo-popup.is-visible {
-  opacity: 1;
-  visibility: visible;
-}
-.promo-popup__card {
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  max-width: 440px;
-  width: 100%;
-  padding: 36px 32px 28px;
-  text-align: center;
-  position: relative;
-  transform: translateY(18px);
-  transition: transform 0.5s ease;
-}
-.promo-popup.is-visible .promo-popup__card { transform: none; }
-.promo-popup__card img {
-  width: 84px;
-  margin: 0 auto 12px;
-}
-.promo-popup__card h3 { font-size: 28px; }
-.promo-popup__card p { color: var(--ink-soft); }
-.promo-popup__close {
+.signup[hidden] { display: none; }
+body.signup-open { overflow: hidden; }
+
+.signup__backdrop {
   position: absolute;
-  top: 8px;
-  right: 12px;
+  inset: 0;
+  background: rgba(52, 22, 12, 0.62);
+  backdrop-filter: blur(2px);
+  animation: signup-fade 0.25s ease-out;
+}
+
+.signup__panel {
+  position: relative;
+  width: min(460px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(52, 22, 12, 0.32);
+  padding: 34px 32px 28px;
+  text-align: center;
+  animation: signup-rise 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.signup__close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
   background: none;
-  border: none;
-  font-size: 28px;
+  border: 0;
+  font-size: 30px;
   line-height: 1;
-  padding: 6px;
   color: var(--ink-soft);
   cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
 }
-.promo-popup__close:hover { color: var(--ink); }
-.promo-popup__no {
-  background: none;
-  border: none;
+.signup__close:hover { color: var(--bark); background: var(--parchment); }
+
+.signup__mark {
+  width: 62px;
+  margin: 0 auto 14px;
+}
+
+.signup__kicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin: 0 0 6px;
+}
+.signup__title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--bark-deep);
+  margin: 0 0 10px;
+}
+.signup__body {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+
+
+.signup__submit {
+  display: block;
+  width: 100%;
   margin-top: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.signup__decline {
+  background: none;
+  border: 0;
+  margin-top: 14px;
+  padding: 4px;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--ink-soft);
   text-decoration: underline;
   cursor: pointer;
 }
+.signup__decline:hover { color: var(--bark); }
+
+
+@keyframes signup-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes signup-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .promo-popup, .promo-popup__card { transition: none; }
+  .signup__backdrop, .signup__panel { animation: none; }
 }
 
-/* ==========================================================================
-   404
-   ========================================================================== */
-.notfound {
-  text-align: center;
-  padding: 90px 20px;
+@media (max-width: 480px) {
+  .signup__panel { padding: 28px 22px 24px; }
+  .signup__title { font-size: 28px; }
 }
-.notfound img { width: 180px; margin: 0 auto 24px; }
-.notfound h1 { font-size: 54px; }

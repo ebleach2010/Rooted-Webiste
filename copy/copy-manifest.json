@@ -1,0 +1,840 @@
+{
+  "version": "v1",
+  "date": "August 23, 2026",
+  "note": "Text is whitespace-normalized from the HTML; entities decoded.",
+  "sections": [
+    {
+      "section": "Shared on Every Page",
+      "blocks": [
+        {
+          "id": "SHARED-01",
+          "label": "Top strip and footer: email address",
+          "text": "office@rootedmassageandwellness.com"
+        },
+        {
+          "id": "SHARED-02",
+          "label": "Top strip and footer: phone",
+          "text": "(208) 266-4525"
+        },
+        {
+          "id": "SHARED-03",
+          "label": "Top strip and footer: street address",
+          "text": "410 S Orchard St, Suite 264, Boise, ID 83705"
+        },
+        {
+          "id": "SHARED-04",
+          "label": "Header: brand name",
+          "text": "Rooted\nMassage & Bodywork"
+        },
+        {
+          "id": "SHARED-05",
+          "label": "Navigation links",
+          "text": "Book Now! | Services | Gift Cards | Meet Arielle | FAQ | Client Portal | Contact Us | Home"
+        },
+        {
+          "id": "SHARED-06",
+          "label": "Footer: brand line",
+          "text": "Family-run therapeutic massage studio serving Boise and the greater Treasure Valley."
+        },
+        {
+          "id": "SHARED-07",
+          "label": "Footer: Explore column links",
+          "text": "Home | Services & Pricing | Gift Cards | Meet Arielle | FAQ | Contact Us"
+        },
+        {
+          "id": "SHARED-08",
+          "label": "Footer: hours line",
+          "text": "Tue to Fri: 10 AM to 7 PM · Sat: 9 AM to 5 PM"
+        },
+        {
+          "id": "SHARED-09",
+          "label": "Footer: copyright",
+          "text": "© 2026 Rooted Massage & Bodywork. All rights reserved."
+        },
+        {
+          "id": "SHARED-10",
+          "label": "Footer: cancellation note",
+          "text": "Cancellations within 24 hours are charged 50% of the service; no-shows may be charged full price."
+        }
+      ]
+    },
+    {
+      "section": "New Client Pop-Up",
+      "blocks": [
+        {
+          "id": "POPUP-01",
+          "label": "Small heading",
+          "text": "New Client Offer"
+        },
+        {
+          "id": "POPUP-02",
+          "label": "Title",
+          "text": "Take 15% Off Your First Massage"
+        },
+        {
+          "id": "POPUP-03",
+          "label": "Body",
+          "text": "Join the Rooted email list and your discount code comes straight to you. Good for a Signature Custom Massage, one use per client."
+        },
+        {
+          "id": "POPUP-04",
+          "label": "Button",
+          "text": "Get My Code"
+        },
+        {
+          "id": "POPUP-05",
+          "label": "Decline link",
+          "text": "No thanks, maybe another time"
+        }
+      ]
+    },
+    {
+      "section": "Home Page",
+      "blocks": [
+        {
+          "id": "HOME-01",
+          "label": "Browser tab title",
+          "text": "Rooted Massage & Bodywork | Therapeutic Massage in Boise, Idaho"
+        },
+        {
+          "id": "HOME-02",
+          "label": "Google result description",
+          "text": "Rooted Massage & Bodywork is a family-run massage studio in Boise, Idaho. Therapeutic, deep tissue, relaxation, and lymphatic massage. Book online today."
+        },
+        {
+          "id": "HOME-03",
+          "label": "Link share preview blurb",
+          "text": "Family-run therapeutic massage studio in Boise & the Treasure Valley. Book online today."
+        },
+        {
+          "id": "HOME-04",
+          "label": "Hero tagline",
+          "text": "Take an hour. Feel like yourself again.",
+          "note": "PLACEHOLDER: draft, Eric to react or rewrite"
+        },
+        {
+          "id": "HOME-05",
+          "label": "Hero subtitle",
+          "text": "Therapeutic massage in Boise, Idaho: unhurried, personal, and built around what your body actually needs. Every session, every time."
+        },
+        {
+          "id": "HOME-06",
+          "label": "Hero buttons",
+          "text": "View Services & Book | Gift Cards"
+        },
+        {
+          "id": "HOME-07",
+          "label": "Our Studio: small heading",
+          "text": "Our Studio"
+        },
+        {
+          "id": "HOME-08",
+          "label": "Our Studio: title",
+          "text": "A Different Kind of Massage Studio"
+        },
+        {
+          "id": "HOME-09",
+          "label": "Our Studio: paragraph 1",
+          "text": "Rooted Massage & Bodywork is a family-run massage studio serving Boise and the Treasure Valley. We opened with a simple idea: massage works best when your therapist has the time, training, and freedom to treat what's actually going on, not rush you through a spa menu."
+        },
+        {
+          "id": "HOME-10",
+          "label": "Our Studio: paragraph 2",
+          "text": "Rooted is the two of us. Arielle is the licensed massage therapist behind every session; Eric keeps the schedule, the books, and the lights on. We're small by design; nothing about your care gets handed off, rushed, or templated."
+        },
+        {
+          "id": "HOME-11",
+          "label": "Our Studio: signoff",
+          "text": "Arielle & Eric, Rooted Massage & Bodywork"
+        },
+        {
+          "id": "HOME-12",
+          "label": "Menu teaser: small heading",
+          "text": "On the Menu"
+        },
+        {
+          "id": "HOME-13",
+          "label": "Menu teaser: title",
+          "text": "Massage, Done Thoroughly"
+        },
+        {
+          "id": "HOME-14",
+          "label": "Menu teaser: intro",
+          "text": "Five massages, each built around you, plus add-ons from $5 to make any session yours. New clients: 15% off your first Signature Custom Massage, join our email list for the code.",
+          "note": "“join our email list” links to the sign-up form"
+        },
+        {
+          "id": "HOME-15",
+          "label": "Menu card 1",
+          "text": "Name: Signature Custom Massage\nPrices: 60 min · $95 | 90 min · $145 | 120 min · $190\nText: Rooted's own signature style; most closely resembles Swedish, fully customized to you. Customizable with any add-on.\nButton: Book Now"
+        },
+        {
+          "id": "HOME-16",
+          "label": "Menu card 2",
+          "text": "Name: Deep Tissue Massage\nPrices: 90 min · $155 | 120 min · $200\nText: Slow, deliberate work through the deeper layers, with cupping and fascial scraping included free.\nButton: Book Now"
+        },
+        {
+          "id": "HOME-17",
+          "label": "Menu card 3",
+          "text": "Name: Lymphatic Drainage\nPrices: 90 min · $160\nText: Feather-light Manual Lymphatic Drainage, with fascial massage, dry brushing, red light, and Gua Sha included free.\nButton: Book Now"
+        },
+        {
+          "id": "HOME-18",
+          "label": "Menu teaser: closing button",
+          "text": "See the Full Menu & Pricing"
+        },
+        {
+          "id": "HOME-19",
+          "label": "Therapist teaser: small heading",
+          "text": "In Good Hands"
+        },
+        {
+          "id": "HOME-20",
+          "label": "Therapist teaser: title",
+          "text": "Meet Your Therapist"
+        },
+        {
+          "id": "HOME-21",
+          "label": "Therapist teaser: role line",
+          "text": "Licensed Massage Therapist · Owner"
+        },
+        {
+          "id": "HOME-22",
+          "label": "Therapist teaser: name",
+          "text": "Arielle"
+        },
+        {
+          "id": "HOME-23",
+          "label": "Therapist teaser: bio paragraph",
+          "text": "Arielle meets your body where it is. With advanced training in myofascial techniques and a specialty in calming the nervous system and lymphatic drainage, she blends focused therapeutic work with the kind of unhurried care that lets your whole system settle."
+        },
+        {
+          "id": "HOME-24",
+          "label": "Therapist teaser: second paragraph",
+          "text": "Her work ranges from very light lymphatic drainage to deeper, more targeted massage, and she doesn't believe deeper always means better; each session adjusts to what your body is actually responding to that day."
+        },
+        {
+          "id": "HOME-25",
+          "label": "Therapist teaser: buttons",
+          "text": "Read Arielle's Story | Schedule with Arielle"
+        },
+        {
+          "id": "HOME-26",
+          "label": "Location: small heading",
+          "text": "Find Us"
+        },
+        {
+          "id": "HOME-27",
+          "label": "Location: title",
+          "text": "A Calm Corner of Boise"
+        },
+        {
+          "id": "HOME-28",
+          "label": "Location: intro",
+          "text": "Our studio is easy to reach from anywhere in the Treasure Valley.",
+          "note": "PLACEHOLDER: neighborhood detail and parking notes to add"
+        },
+        {
+          "id": "HOME-29",
+          "label": "Location: photo captions",
+          "text": "The studio | Come say hello"
+        },
+        {
+          "id": "HOME-30",
+          "label": "Location: button",
+          "text": "Hours & Directions"
+        },
+        {
+          "id": "HOME-31",
+          "label": "Bottom banner: title",
+          "text": "Ready to Feel Better?"
+        },
+        {
+          "id": "HOME-32",
+          "label": "Bottom banner: body",
+          "text": "Booking online takes less than a minute: pick your service, pick your time, and we'll take care of the rest."
+        },
+        {
+          "id": "HOME-33",
+          "label": "Bottom banner: button",
+          "text": "Book a Massage Today"
+        }
+      ]
+    },
+    {
+      "section": "Services Page",
+      "blocks": [
+        {
+          "id": "SVC-01",
+          "label": "Browser tab title",
+          "text": "Massage Services & Pricing | Rooted Massage & Bodywork, Boise ID"
+        },
+        {
+          "id": "SVC-02",
+          "label": "Google result description",
+          "text": "Signature custom, relax & reset, targeted tension, deep tissue, and lymphatic drainage massage in Boise, Idaho. See pricing, add-ons, and book online with Rooted Massage & Bodywork."
+        },
+        {
+          "id": "SVC-03",
+          "label": "Link share preview blurb",
+          "text": "Five massages, six add-ons, one therapist who takes her time. Book online today."
+        },
+        {
+          "id": "SVC-04",
+          "label": "Page banner: title",
+          "text": "Our Services"
+        },
+        {
+          "id": "SVC-05",
+          "label": "Page banner: subtitle",
+          "text": "Rest. Restore. Renew."
+        },
+        {
+          "id": "SVC-06",
+          "label": "Step One: small heading",
+          "text": "Step One"
+        },
+        {
+          "id": "SVC-07",
+          "label": "Step One: title",
+          "text": "Choose Your Therapist"
+        },
+        {
+          "id": "SVC-08",
+          "label": "Step One: intro",
+          "text": "Every session at Rooted is one-on-one with a licensed massage therapist. Your Book buttons schedule directly with the therapist you choose."
+        },
+        {
+          "id": "SVC-09",
+          "label": "Therapist card",
+          "text": "Name: Arielle\nRole: Licensed Massage Therapist · Owner\nText: Advanced myofascial training, with a specialty in calming the nervous system and lymphatic drainage.\nBadge: ✓ Selected"
+        },
+        {
+          "id": "SVC-10",
+          "label": "Step Two: small heading",
+          "text": "Step Two"
+        },
+        {
+          "id": "SVC-11",
+          "label": "Step Two: title",
+          "text": "Pick Your Massage"
+        },
+        {
+          "id": "SVC-12",
+          "label": "Step Two: intro",
+          "text": "Five massages, each built around you. Anything listed under a massage is included in the price."
+        },
+        {
+          "id": "SVC-13",
+          "label": "New Client Special banner",
+          "text": "Title: New Client Special\nText: First visit? Take 15% off a Signature Custom Massage: join our email list to get your discount code. One use per client, Signature massages only.\nButton: Get 15% Off"
+        },
+        {
+          "id": "SVC-14",
+          "label": "Service 1: Signature Custom",
+          "text": "Name: Signature Custom Massage\nDuration line: 60, 90, or 120 minutes · light to moderate pressure\nPrices: 60 min · $95 | 90 min · $145 | 120 min · $190\nText: Rooted's own signature style; most closely resembles Swedish, fully customized to you.\nMake it yours: customize with any add-on from the add-on menu below.\nButtons: Book 60 Min | Book 90 Min | Book 120 Min"
+        },
+        {
+          "id": "SVC-15",
+          "label": "Service 2: Relax & Reset",
+          "text": "Name: Relax & Reset Massage\nDuration line: 60, 90, or 120 minutes · light to moderate pressure\nPrices: 60 min · $125 | 90 min · $160 | 120 min · $205\nText: Nervous system focused therapy to calm and reset.\nIncluded free: complimentary aromatherapy with every session. Other add-ons available at regular price.\nButtons: Book 60 Min | Book 90 Min | Book 120 Min"
+        },
+        {
+          "id": "SVC-16",
+          "label": "Service 3: Targeted Tension",
+          "text": "Name: Targeted Tension Massage\nDuration line: 60 or 90 minutes · light to moderate pressure\nPrices: 60 min · $95 | 90 min · $145\nText: Focused relief for problem areas, ideal for chronic, work-related tension and pain.\nIncluded free: scraping.\nButtons: Book 60 Min | Book 90 Min"
+        },
+        {
+          "id": "SVC-17",
+          "label": "Service 4: Deep Tissue",
+          "text": "Name: Deep Tissue Massage\nDuration line: 90 or 120 minutes\nPrices: 90 min · $155 | 120 min · $200\nText: Slow, deliberate work through the deeper layers; its own dedicated massage, not an add-on.\nIncluded free: cupping and fascial scraping.\nButtons: Book 90 Min | Book 120 Min"
+        },
+        {
+          "id": "SVC-18",
+          "label": "Service 5: Lymphatic Drainage",
+          "text": "Name: Lymphatic Drainage Massage\nDuration line: 90 minutes\nPrices: 90 min · $160\nText: Feather-light, rhythmic Manual Lymphatic Drainage to ease puffiness and deeply calm the nervous system; one of Arielle's specialties.\nIncluded free: a lymphatic face massage with our heated infrared Gua Sha tool, plus fascial massage, dry brushing, and red light.\nButtons: Book 90 Min"
+        },
+        {
+          "id": "SVC-19",
+          "label": "Step Three: small heading",
+          "text": "Step Three"
+        },
+        {
+          "id": "SVC-20",
+          "label": "Step Three: title",
+          "text": "What Are Add-Ons?"
+        },
+        {
+          "id": "SVC-21",
+          "label": "Step Three: intro",
+          "text": "Add-ons are chosen when you book, right after you pick your massage. Available on the Signature Custom, Relax & Reset, and Targeted Tension massages; Deep Tissue and Lymphatic Drainage already include their specialty treatments."
+        },
+        {
+          "id": "SVC-22",
+          "label": "Add-on 1",
+          "text": "Name: Aromatherapy · $5\nText: Calming or uplifting essential oils to enhance relaxation and support mood. Free with every Relax & Reset Massage."
+        },
+        {
+          "id": "SVC-23",
+          "label": "Add-on 2",
+          "text": "Name: Hot Stone Therapy · $10\nText: Smooth, heated stones melt away muscle tension, improve circulation, and promote deeper relaxation."
+        },
+        {
+          "id": "SVC-24",
+          "label": "Add-on 3",
+          "text": "Name: Peppermint Scalp Massage · $10\nText: A cooling, invigorating scalp treatment."
+        },
+        {
+          "id": "SVC-25",
+          "label": "Add-on 4",
+          "text": "Name: Cupping · $15\nText: Therapeutic cups help release deep muscle tension, improve circulation, and support mobility and recovery."
+        },
+        {
+          "id": "SVC-26",
+          "label": "Add-on 5",
+          "text": "Name: Fascial Scraping · $15\nText: Targeted scraping to release fascial restrictions and tension."
+        },
+        {
+          "id": "SVC-27",
+          "label": "Add-on 6",
+          "text": "Name: Lymphatic Face Massage · $25\nText: A lymphatic-drainage face massage using our specialized heated infrared Gua Sha tool. Included free with the Lymphatic Drainage Massage."
+        },
+        {
+          "id": "SVC-28",
+          "label": "Good to Know: small heading",
+          "text": "Before You Book"
+        },
+        {
+          "id": "SVC-29",
+          "label": "Good to Know: title",
+          "text": "Good to Know"
+        },
+        {
+          "id": "SVC-30",
+          "label": "Card: Cancellations",
+          "text": "Your appointment time is reserved just for you. Appointments canceled or rescheduled within 24 hours are charged 50% of the service total, and no-shows may be charged full price."
+        },
+        {
+          "id": "SVC-31",
+          "label": "Card: First Visit?",
+          "text": "Arrive a few minutes early for a short health intake, and grab 15% off your first Signature Custom Massage by joining our email list. See the FAQ for more."
+        },
+        {
+          "id": "SVC-32",
+          "label": "Card: Gift Cards",
+          "text": "Massage makes a wonderful gift. E-gift cards are available online any time, grab one here."
+        },
+        {
+          "id": "SVC-33",
+          "label": "Bottom banner: title",
+          "text": "Not Sure Which to Choose?"
+        },
+        {
+          "id": "SVC-34",
+          "label": "Bottom banner: body",
+          "text": "Start with the Signature Custom Massage and tell Arielle what's going on; every session is tailored from there. Or reach out and ask; we're happy to point you the right way."
+        },
+        {
+          "id": "SVC-35",
+          "label": "Bottom banner: buttons",
+          "text": "Book Now | Ask a Question"
+        }
+      ]
+    },
+    {
+      "section": "Meet Arielle Page",
+      "blocks": [
+        {
+          "id": "ARI-01",
+          "label": "Browser tab title",
+          "text": "Meet Arielle | Licensed Massage Therapist in Boise | Rooted Massage & Bodywork"
+        },
+        {
+          "id": "ARI-02",
+          "label": "Google result description",
+          "text": "Meet Arielle, licensed massage therapist and owner of Rooted Massage & Bodywork in Boise, Idaho. Myofascial work, lymphatic drainage, and unhurried therapeutic care."
+        },
+        {
+          "id": "ARI-03",
+          "label": "Page banner: title",
+          "text": "Meet Arielle"
+        },
+        {
+          "id": "ARI-04",
+          "label": "Page banner: subtitle",
+          "text": "The hands behind the work"
+        },
+        {
+          "id": "ARI-05",
+          "label": "Role line",
+          "text": "Licensed Massage Therapist · Owner"
+        },
+        {
+          "id": "ARI-06",
+          "label": "Greeting heading",
+          "text": "Hey there! I'm Arielle."
+        },
+        {
+          "id": "ARI-07",
+          "label": "Bio paragraph 1",
+          "text": "I'm Arielle, the owner of Rooted and a licensed massage therapist. I've been practicing for nearly five years, and over that time I've learned that good massage has a lot less to do with following a routine and a lot more to do with paying attention to the person in front of you."
+        },
+        {
+          "id": "ARI-08",
+          "label": "Bio paragraph 2",
+          "text": "My work ranges from very light lymphatic drainage to deeper, more targeted massage, with a lot of myofascial and nervous-system-focused work mixed in. I don't believe deeper always means better, and I adjust each session based on what your body is actually responding to that day.",
+          "note": "was a PLACEHOLDER; now Arielle's real bio"
+        },
+        {
+          "id": "ARI-09",
+          "label": "Bio paragraph 3",
+          "text": "Caregiving has always come naturally to me, and massage ended up being a way to turn that part of myself into work I genuinely enjoy. More than anything, I want people to feel comfortable, listened to, and like they had someone actually paying attention to them while they were here.",
+          "note": "was a PLACEHOLDER; now Arielle's real bio"
+        },
+        {
+          "id": "ARI-10",
+          "label": "Bio paragraph 4",
+          "text": "(removed: the bio is now the three paragraphs ARI-07 to ARI-09)",
+          "note": "block no longer on the page"
+        },
+        {
+          "id": "ARI-11",
+          "label": "Closing quote",
+          "text": "(removed: no closing quote yet; easy to add back if Arielle writes one)",
+          "note": "block no longer on the page"
+        },
+        {
+          "id": "ARI-12",
+          "label": "Buttons",
+          "text": "Schedule with Arielle | See Services & Pricing"
+        },
+        {
+          "id": "ARI-13",
+          "label": "Bottom banner: title",
+          "text": "Ready When You Are"
+        },
+        {
+          "id": "ARI-14",
+          "label": "Bottom banner: body",
+          "text": "Every session is one therapist, one client, and enough time to do it right."
+        },
+        {
+          "id": "ARI-15",
+          "label": "Bottom banner: button",
+          "text": "Book a Massage Today"
+        }
+      ]
+    },
+    {
+      "section": "FAQ Page",
+      "blocks": [
+        {
+          "id": "FAQ-01",
+          "label": "Browser tab title",
+          "text": "FAQ | Rooted Massage & Bodywork, Boise ID"
+        },
+        {
+          "id": "FAQ-02",
+          "label": "Google result description",
+          "text": "Answers to common questions about massage at Rooted Massage & Bodywork in Boise: what to expect, draping, pressure, cancellations, HSA/FSA, parking, and more."
+        },
+        {
+          "id": "FAQ-03",
+          "label": "Page banner: title",
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "id": "FAQ-04",
+          "label": "Page banner: subtitle",
+          "text": "We have answers!"
+        },
+        {
+          "id": "FAQ-05",
+          "label": "Section 1: small heading",
+          "text": "Good to Know"
+        },
+        {
+          "id": "FAQ-06",
+          "label": "Section 1: title",
+          "text": "Your Visit"
+        },
+        {
+          "id": "FAQ-07",
+          "label": "Q&A: first appointment",
+          "text": "Q: What should I expect at my first appointment?\nA: Plan to arrive a few minutes early to go over a short health intake. Arielle will talk through what's going on with your body and what you want out of the session, then tailor the work from there. [PLACEHOLDER: adjust to your actual intake flow.]",
+          "note": "contains a PLACEHOLDER"
+        },
+        {
+          "id": "FAQ-08",
+          "label": "Q&A: undressing",
+          "text": "Q: Do I have to undress?\nA: Only to your comfort level. You'll always be professionally draped, and great work can be done through clothing if you prefer. Your comfort runs the session."
+        },
+        {
+          "id": "FAQ-09",
+          "label": "Q&A: pain",
+          "text": "Q: Should a massage be painful?\nA: A massage should never be more intense than you want it to be. Deeper work can involve some “good hurt” as stubborn knots release, but pressure is always adjusted to you; just say the word at any point during your session."
+        },
+        {
+          "id": "FAQ-10",
+          "label": "Q&A: talking",
+          "text": "Q: Is there talking (or not talking) during my treatment?\nA: Entirely up to you. Many clients prefer quiet; others like to chat. Arielle follows your lead, the only thing she'll always check in about is pressure and comfort."
+        },
+        {
+          "id": "FAQ-11",
+          "label": "Q&A: add-ons",
+          "text": "Q: Can I add hot stones, aromatherapy, or cupping?\nA: Yes. Add-ons run $5 to $25: aromatherapy ($5), hot stones or a peppermint scalp massage ($10), cupping or fascial scraping ($15), and a lymphatic face massage with our heated infrared Gua Sha tool ($25). You choose them while booking, right after picking your massage. Note that Deep Tissue and Lymphatic Drainage already include their specialty treatments free, and Relax & Reset includes free aromatherapy."
+        },
+        {
+          "id": "FAQ-12",
+          "label": "Q&A: new-client special",
+          "text": "Q: Do you have a new-client special?\nA: Yes! First-time clients get 15% off a Signature Custom Massage: join our email list to get your discount code. One use per client, Signature massages only.",
+          "note": "“join our email list” links to the sign-up form"
+        },
+        {
+          "id": "FAQ-13",
+          "label": "Section 2: title",
+          "text": "Policies & Practical Details"
+        },
+        {
+          "id": "FAQ-14",
+          "label": "Q&A: cancellation policy",
+          "text": "Q: What's your cancellation policy?\nA: For appointments canceled or rescheduled within 24 hours we charge 50% of the service total. No-shows may be charged full price."
+        },
+        {
+          "id": "FAQ-15",
+          "label": "Q&A: how to book",
+          "text": "Q: How do I book an appointment?\nA: Online booking is the fastest way; hit any “Book Now” button to pick your service and time. You can also reach out through the contact page and we'll get you scheduled."
+        },
+        {
+          "id": "FAQ-16",
+          "label": "Q&A: HSA/FSA",
+          "text": "Q: Can I use my HSA or FSA?\nA: [PLACEHOLDER: confirm; many HSA/FSA plans cover massage with a letter of medical necessity from your provider.]",
+          "note": "PLACEHOLDER"
+        },
+        {
+          "id": "FAQ-17",
+          "label": "Q&A: gratuity",
+          "text": "Q: Is gratuity expected?\nA: Tips are never required and always appreciated. [PLACEHOLDER: adjust to your preference.]",
+          "note": "contains a PLACEHOLDER"
+        },
+        {
+          "id": "FAQ-18",
+          "label": "Q&A: location and parking",
+          "text": "Q: Where are you located? Is there parking?\nA: [PLACEHOLDER: address, parking notes, entrance instructions.]",
+          "note": "PLACEHOLDER"
+        },
+        {
+          "id": "FAQ-19",
+          "label": "Q&A: gift cards",
+          "text": "Q: Do you offer gift cards?\nA: Yes! E-gift cards are available online any time; see the gift cards page. Physical cards are sold in studio. They make a wonderful gift for birthdays, anniversaries, or anyone who could use an hour of genuine rest. Gift cards never expire."
+        },
+        {
+          "id": "FAQ-20",
+          "label": "Bottom banner: title",
+          "text": "Still Have Questions?"
+        },
+        {
+          "id": "FAQ-21",
+          "label": "Bottom banner: body",
+          "text": "Reach out any time; we're happy to help you figure out what's right for your body."
+        },
+        {
+          "id": "FAQ-22",
+          "label": "Bottom banner: buttons",
+          "text": "Contact Us | Book a Massage"
+        }
+      ]
+    },
+    {
+      "section": "Contact Page",
+      "blocks": [
+        {
+          "id": "CON-01",
+          "label": "Browser tab title",
+          "text": "Contact Us | Rooted Massage & Bodywork, Boise ID"
+        },
+        {
+          "id": "CON-02",
+          "label": "Google result description",
+          "text": "Contact Rooted Massage & Bodywork in Boise, Idaho: location, hours, phone, and email. Reach out anytime; we're here for you."
+        },
+        {
+          "id": "CON-03",
+          "label": "Page banner: title",
+          "text": "Contact Us"
+        },
+        {
+          "id": "CON-04",
+          "label": "Page banner: subtitle",
+          "text": "Reach out anytime; we're here for you."
+        },
+        {
+          "id": "CON-05",
+          "label": "Section: small heading",
+          "text": "Find Us"
+        },
+        {
+          "id": "CON-06",
+          "label": "Section: title",
+          "text": "Get in Touch"
+        },
+        {
+          "id": "CON-07",
+          "label": "Contact block",
+          "text": "Call or text: (208) 266-4525\nEmail: office@rootedmassageandwellness.com\n410 S Orchard St, Suite 264, Boise, ID 83705"
+        },
+        {
+          "id": "CON-08",
+          "label": "Hours block",
+          "text": "Tuesday to Friday: 10:00 AM to 7:00 PM\nSaturday: 9:00 AM to 5:00 PM\nSunday and Monday: Closed"
+        },
+        {
+          "id": "CON-09",
+          "label": "Booking blurb",
+          "text": "The fastest way to get on the schedule is online; any Book button on this site takes you straight to our booking system."
+        },
+        {
+          "id": "CON-10",
+          "label": "Booking button",
+          "text": "Book a Massage"
+        },
+        {
+          "id": "CON-11",
+          "label": "Serving line",
+          "text": "Serving Boise and the greater Treasure Valley."
+        },
+        {
+          "id": "CON-12",
+          "label": "Map area",
+          "text": "(live Google Maps embed pinned to the Rooted business listing)",
+          "note": "no longer editable text"
+        },
+        {
+          "id": "CON-13",
+          "label": "Photo captions",
+          "text": "The studio | Look for the sign"
+        },
+        {
+          "id": "CON-14",
+          "label": "Bottom banner: title",
+          "text": "Prefer to Just Book?"
+        },
+        {
+          "id": "CON-15",
+          "label": "Bottom banner: body",
+          "text": "Pick a service and a time; done in under a minute."
+        },
+        {
+          "id": "CON-16",
+          "label": "Bottom banner: button",
+          "text": "Book Online Now"
+        }
+      ]
+    },
+    {
+      "section": "Gift Cards Page",
+      "blocks": [
+        {
+          "id": "GIFT-01",
+          "label": "Browser tab title",
+          "text": "Gift Cards | Rooted Massage & Bodywork, Boise ID"
+        },
+        {
+          "id": "GIFT-02",
+          "label": "Google result description",
+          "text": "Give the gift of massage. Digital gift cards from Rooted Massage & Bodywork in Boise, Idaho, available online and delivered instantly."
+        },
+        {
+          "id": "GIFT-03",
+          "label": "Page banner: title",
+          "text": "Gift Cards"
+        },
+        {
+          "id": "GIFT-04",
+          "label": "Page banner: subtitle",
+          "text": "Give the gift of genuine rest"
+        },
+        {
+          "id": "GIFT-05",
+          "label": "Pitch: small heading",
+          "text": "A Thoughtful Gift"
+        },
+        {
+          "id": "GIFT-06",
+          "label": "Pitch: title",
+          "text": "Massage Makes a Wonderful Gift"
+        },
+        {
+          "id": "GIFT-07",
+          "label": "Pitch: body",
+          "text": "For birthdays, anniversaries, new parents, hard workers, and anyone carrying more tension than a body should. A Rooted gift card is an hour (or more) of genuine, unhurried care. Gift cards never expire."
+        },
+        {
+          "id": "GIFT-08",
+          "label": "Buy button",
+          "text": "Buy an E-Gift Card Online"
+        },
+        {
+          "id": "GIFT-09",
+          "label": "Physical card line",
+          "text": "Prefer a physical card? They're available for purchase in studio."
+        },
+        {
+          "id": "GIFT-10",
+          "label": "Card 1",
+          "text": "Name: Matched to Any Massage\nText: Choose a card matched to any massage on the menu, from a 60-minute Signature ($95) to a 120-minute session ($190 to $205), or enter a custom amount."
+        },
+        {
+          "id": "GIFT-11",
+          "label": "Card 2",
+          "text": "Name: Instant Delivery\nText: E-gift cards are purchased online and sent by email right away, perfect for last-minute gifts."
+        },
+        {
+          "id": "GIFT-12",
+          "label": "Card 3",
+          "text": "Name: Easy to Redeem\nText: Recipients book online like any other appointment and apply the gift card at checkout. No fuss, just rest."
+        },
+        {
+          "id": "GIFT-13",
+          "label": "Bottom banner: title",
+          "text": "Know Someone Who Needs This?"
+        },
+        {
+          "id": "GIFT-14",
+          "label": "Bottom banner: body",
+          "text": "Send a little rest their way; it takes about a minute."
+        },
+        {
+          "id": "GIFT-15",
+          "label": "Bottom banner: button",
+          "text": "Buy a Gift Card"
+        }
+      ]
+    },
+    {
+      "section": "Page Not Found (404)",
+      "blocks": [
+        {
+          "id": "NF-01",
+          "label": "Browser tab title",
+          "text": "Page Not Found | Rooted Massage & Bodywork"
+        },
+        {
+          "id": "NF-02",
+          "label": "Heading",
+          "text": "Well, this page wandered off."
+        },
+        {
+          "id": "NF-03",
+          "label": "Body",
+          "text": "The page you're looking for doesn't exist (or moved). Let's get you somewhere more relaxing."
+        },
+        {
+          "id": "NF-04",
+          "label": "Buttons",
+          "text": "Back to Home | See Our Services"
+        }
+      ]
+    }
+  ]
+}

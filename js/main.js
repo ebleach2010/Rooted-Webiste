@@ -1,7 +1,7 @@
-/* Rooted Massage & Bodywork — site behavior */
+/* Rooted Massage & Bodywork: site behavior */
 
 /* ================================================================
-   MANGOMINT BOOKING LINKS — organized per therapist.
+   MANGOMINT BOOKING LINKS, organized per therapist.
 
    Every element with class "book-btn" is wired automatically:
      data-book="signature-60"  → active therapist's link for that service
@@ -16,7 +16,7 @@
    1. Copy Arielle's block below under a new key (e.g. jordan: {...})
       and paste that provider's MangoMint service links into it.
    2. Duplicate the .therapist-card in services.html with
-      data-therapist="jordan". Done — buttons re-wire on selection.
+      data-therapist="jordan". Done. Buttons re-wire on selection.
 
    Any per-service key left null falls back to that therapist's
    "default" link, so only "default" is required per therapist.
@@ -25,8 +25,8 @@ const BOOKING = {
   therapists: {
     arielle: {
       default: "https://booking.mangomint.com/rootedtherapeutics",
-      /* Per-service deep links — client lands directly on that massage.
-         If a service is renamed/re-created in MangoMint its serviceId
+      /* Per-service deep links: client lands directly on that massage.
+         If a service is renamed or re-created in MangoMint its serviceId
          changes: Settings → Services → [service] → Online Booking →
          Direct link. All durations of a service share one link. */
       "signature-60": "https://booking.mangomint.com/rootedtherapeutics?serviceId=7",
@@ -71,70 +71,192 @@ function wireBookButtons() {
 }
 
 /* ================================================================
-   PROMO POPUP: fades in 10s after arrival, links to the email-signup
-   form that reveals the discount code. Shows at most once per visitor
-   per week (tracked in localStorage). Not included on 404.html because
-   that page doesn't load this script.
+   NEW CLIENT SIGN-UP POP-UP. One dialog, built here so there is a
+   single copy to edit. It sends people to the MangoMint email-signup
+   form (SIGNUP.formUrl), which collects the address and reveals the
+   discount code. The code is intentionally never printed on the site.
+
+   Behavior:
+   - Auto-opens once per visitor: after SIGNUP.delaySeconds, at
+     SIGNUP.scrollPercent of the page, or on exit intent (desktop),
+     whichever happens first.
+   - Closing or "No thanks" stays quiet for SIGNUP.remindAfterDays.
+   - Clicking Get My Code, or any direct email-list link on the
+     pages, marks the visitor as joined and the pop-up never
+     auto-opens for them again.
+   Any element with data-open-signup opens the dialog on demand.
    ================================================================ */
-const PROMO_URL = "https://mangomint.co/MT9obD";
-const PROMO_DELAY_MS = 10000;
-const PROMO_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
+const SIGNUP = {
+  formUrl: "https://mangomint.co/MT9obD",
+  delaySeconds: 12,
+  scrollPercent: 45,
+  exitIntent: true,
+  remindAfterDays: 30,
+};
 
-function initPromoPopup() {
-  const KEY = "rootedPromoSeen";
+const SIGNUP_STORE = "rooted:signup";
+
+function readSignupState() {
   try {
-    if (Date.now() - Number(localStorage.getItem(KEY) || 0) < PROMO_COOLDOWN_MS) return;
-  } catch (e) { /* storage unavailable: still show */ }
+    return JSON.parse(localStorage.getItem(SIGNUP_STORE) || "{}");
+  } catch {
+    return {};
+  }
+}
 
-  setTimeout(() => {
-    const wrap = document.createElement("div");
-    wrap.className = "promo-popup";
-    wrap.setAttribute("role", "dialog");
-    wrap.setAttribute("aria-modal", "true");
-    wrap.setAttribute("aria-label", "New client special");
-    wrap.innerHTML =
-      '<div class="promo-popup__card">' +
-      '<button type="button" class="promo-popup__close" aria-label="Close">&times;</button>' +
-      '<img src="/assets/logo-mark.png" alt="">' +
-      "<h3>Take 15% Off Your First Massage</h3>" +
-      "<p>Join our email list and we&rsquo;ll send you a discount code for 15% off a " +
-      "Signature Custom Massage. New clients only, one use per client.</p>" +
-      '<a class="btn btn--big promo-popup__cta" href="' + PROMO_URL + '" target="_blank" rel="noopener">Get My Code</a>' +
-      '<br><button type="button" class="promo-popup__no">No thanks</button>' +
-      "</div>";
-    document.body.appendChild(wrap);
-    /* Tiny delay so the browser paints the hidden state first, making the
-       CSS fade run. A timeout (not rAF) so it also fires in hidden tabs. */
-    setTimeout(() => wrap.classList.add("is-visible"), 50);
+function writeSignupState(state) {
+  try {
+    localStorage.setItem(SIGNUP_STORE, JSON.stringify(state));
+  } catch {
+    /* private browsing: the pop-up just reappears next visit */
+  }
+}
 
-    const markSeen = () => {
-      try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
-    };
-    const close = () => {
-      markSeen();
-      wrap.classList.remove("is-visible");
-      setTimeout(() => wrap.remove(), 500);
-    };
-    wrap.addEventListener("click", (e) => { if (e.target === wrap) close(); });
-    wrap.querySelector(".promo-popup__close").addEventListener("click", close);
-    wrap.querySelector(".promo-popup__no").addEventListener("click", close);
-    wrap.querySelector(".promo-popup__cta").addEventListener("click", () => {
-      markSeen();
-      wrap.classList.remove("is-visible");
-      setTimeout(() => wrap.remove(), 500);
+function buildSignupDialog() {
+  const el = document.createElement("div");
+  el.className = "signup";
+  el.id = "signupModal";
+  el.hidden = true;
+  el.innerHTML = `
+    <div class="signup__backdrop" data-signup-close></div>
+    <div class="signup__panel" role="dialog" aria-modal="true"
+         aria-labelledby="signupTitle" aria-describedby="signupBody">
+      <button class="signup__close" type="button" aria-label="Close" data-signup-close>&times;</button>
+      <img class="signup__mark" src="/assets/logo-mark.png" alt="" aria-hidden="true">
+      <p class="signup__kicker">New Client Offer</p>
+      <h2 class="signup__title" id="signupTitle">Take 15% Off Your First Massage</h2>
+      <p class="signup__body" id="signupBody">Join the Rooted email list and your discount code
+        comes straight to you. Good for a Signature Custom Massage, one use per client.</p>
+      <a class="btn signup__submit" data-signup-cta href="${SIGNUP.formUrl}"
+         target="_blank" rel="noopener">Get My Code</a>
+      <button class="signup__decline" type="button" data-signup-close>No thanks, maybe another time</button>
+    </div>`;
+  return el;
+}
+
+function initSignup() {
+  const modal = buildSignupDialog();
+  document.body.appendChild(modal);
+
+  const panel = modal.querySelector(".signup__panel");
+  let lastFocused = null;
+  let autoTimer = null;
+
+  const isOpen = () => !modal.hidden;
+  const joined = () => readSignupState().status === "joined";
+
+  function openSignup() {
+    if (isOpen()) return;
+    cancelAutoOpen();
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add("signup-open");
+    const cta = modal.querySelector("[data-signup-cta]");
+    window.requestAnimationFrame(() => cta && cta.focus());
+  }
+
+  function closeSignup(reason) {
+    if (!isOpen()) return;
+    modal.hidden = true;
+    document.body.classList.remove("signup-open");
+    if (reason === "dismiss" && !joined()) {
+      writeSignupState({
+        status: "dismissed",
+        until: Date.now() + SIGNUP.remindAfterDays * 86400000,
+      });
+    }
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  function markJoined() {
+    writeSignupState({ status: "joined", at: Date.now() });
+  }
+
+  /* Keep tabbing inside the dialog while it's open. */
+  function trapFocus(e) {
+    if (e.key !== "Tab") return;
+    const focusable = [
+      ...panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+    ].filter((n) => n.offsetParent !== null);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (!isOpen()) return;
+    if (e.key === "Escape") closeSignup("dismiss");
+    else trapFocus(e);
+  });
+
+  modal.querySelectorAll("[data-signup-close]").forEach((btn) => {
+    btn.addEventListener("click", () => closeSignup("dismiss"));
+  });
+
+  modal.querySelector("[data-signup-cta]").addEventListener("click", () => {
+    markJoined();
+    closeSignup("joined");
+  });
+
+  /* Direct email-list links on the pages count as joining too, so the
+     pop-up stops nagging people who already signed up through one. */
+  document.querySelectorAll('a[href*="mangomint.co/MT9obD"]').forEach((a) => {
+    a.addEventListener("click", markJoined);
+  });
+
+  document.querySelectorAll("[data-open-signup]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openSignup();
     });
-    document.addEventListener("keydown", function esc(e) {
-      if (e.key === "Escape") {
-        close();
-        document.removeEventListener("keydown", esc);
-      }
-    });
-  }, PROMO_DELAY_MS);
+  });
+
+  /* ---- Auto-open triggers ---- */
+  function cancelAutoOpen() {
+    clearTimeout(autoTimer);
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("mouseout", onExitIntent);
+  }
+
+  function autoOpen() {
+    if (!shouldAutoOpen()) return cancelAutoOpen();
+    openSignup();
+  }
+
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    if ((window.scrollY / max) * 100 >= SIGNUP.scrollPercent) autoOpen();
+  }
+
+  function onExitIntent(e) {
+    if (e.clientY <= 0 && !e.relatedTarget) autoOpen();
+  }
+
+  function shouldAutoOpen() {
+    const state = readSignupState();
+    if (state.status === "joined") return false;
+    if (state.status === "dismissed" && Date.now() < (state.until || 0)) return false;
+    return true;
+  }
+
+  if (shouldAutoOpen()) {
+    autoTimer = setTimeout(autoOpen, SIGNUP.delaySeconds * 1000);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (SIGNUP.exitIntent && window.matchMedia("(pointer: fine)").matches) {
+      document.addEventListener("mouseout", onExitIntent);
+    }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initPromoPopup();
-
   /* Therapist picker (Services page). One card today; selecting a card
      re-wires every Book button to that therapist's links. */
   const cards = document.querySelectorAll(".therapist-card[data-therapist]");
@@ -168,4 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  initSignup();
 });
