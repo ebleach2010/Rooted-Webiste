@@ -22,13 +22,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 
-  <!-- ================================================================
-       MANGOMINT: paste your integration script tag on the line below.
-       Find it in MangoMint → Settings → Online Booking → Setup & Integration.
-       Paste the SAME tag into every page (all 7 html files).
-       With it in place, Book buttons open the booking overlay in-page.
-       ================================================================ -->
-  <!-- <script ...mangomint script tag goes here... ></script> -->
+  <!-- MangoMint booking overlay, installed. Book buttons open the scheduler
+       in-page; remove these two lines to fall back to new-tab booking. -->
+  <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 630678;</script>
+  <script src="https://booking.mangomint.com/app.js" async></script>
 
   <!-- Local business structured data (fill placeholders when details are final) -->
   <script type="application/ld+json">
@@ -39,16 +36,20 @@
     "description": "Family-run therapeutic massage studio serving Boise and the Treasure Valley.",
     "image": "https://rootedmassagebodywork.com/assets/og-image.jpg",
     "url": "https://rootedmassagebodywork.com/",
-    "telephone": "[PLACEHOLDER phone]",
-    "email": "[PLACEHOLDER email]",
+    "telephone": "(208) 266-4525",
+    "email": "office@rootedmassageandwellness.com",
     "priceRange": "$95 - $205",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+    ],
     "areaServed": "Boise, Idaho and the Treasure Valley",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "[PLACEHOLDER street address]",
+      "streetAddress": "410 S Orchard St, Suite 264",
       "addressLocality": "Boise",
       "addressRegion": "ID",
-      "postalCode": "[PLACEHOLDER zip]"
+      "postalCode": "83705"
     }
   }
   </script>
@@ -57,26 +58,20 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ====================================================================
-       SHARED TOP STRIP: if you change this, change it in ALL 7 html files
+       SHARED TOP STRIP, if you change this, change it in ALL 7 html files
        ==================================================================== -->
   <div class="topstrip">
     <div class="topstrip__inner">
-      <div class="topstrip__social">
-        <!-- PLACEHOLDER: real Instagram / Facebook URLs -->
-        <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.8-.3 1.8-.1 1.2-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.8.3 1.8.3 1.2.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.8.3-1.8.1-1.2.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.8-.3-1.8-.3-1.2-.1-1.6-.1-4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg></a>
-        <a href="https://facebook.com" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      </div>
       <div class="topstrip__contact">
-        <!-- PLACEHOLDER: real email / phone / address -->
-        <a href="mailto:hello@example.com">[PLACEHOLDER email]</a>
-        <a href="tel:+12080000000">[PLACEHOLDER phone]</a>
-        <span>[PLACEHOLDER street address], Boise, ID</span>
+        <a href="mailto:office@rootedmassageandwellness.com">office@rootedmassageandwellness.com</a>
+        <a href="tel:+12082664525">(208) 266-4525</a>
+        <span>410 S Orchard St, Suite 264, Boise, ID 83705</span>
       </div>
     </div>
   </div>
 
   <!-- ====================================================================
-       SHARED HEADER / NAV: if you change this, change it in ALL 7 html
+       SHARED HEADER / NAV, if you change this, change it in ALL 7 html
        files. Move aria-current="page" to the link matching each page.
        ==================================================================== -->
   <header class="siteheader">
@@ -108,9 +103,9 @@
       <div class="hero__banner">
         <img src="/assets/banner.jpg" alt="Rooted Massage &amp; Bodywork" fetchpriority="high">
       </div>
-      <!-- PLACEHOLDER: tagline draft. Eric to react/rewrite -->
-      <p class="hero__tagline">Bodywork that gets to the root of it</p>
-      <p class="hero__sub">Therapeutic massage in Boise, Idaho. Unhurried, personal, and built around
+      <!-- PLACEHOLDER: tagline draft, Eric to react/rewrite -->
+      <p class="hero__tagline">Take an hour. Feel like yourself again.</p>
+      <p class="hero__sub">Therapeutic massage in Boise, Idaho: unhurried, personal, and built around
         what your body actually needs. Every session, every time.</p>
       <div class="btn-row">
         <a class="btn btn--big book-btn" data-book="default" href="/services#menu">View Services &amp; Book</a>
@@ -122,15 +117,15 @@
     <section class="section section--center">
       <div class="wrap">
         <span class="section__kicker">Our Studio</span>
-        <h2 class="section__title">It&rsquo;s Time to Get Rooted</h2>
+        <h2 class="section__title">A Different Kind of Massage Studio</h2>
         <div class="divider" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21c0-6 0-9 0-13m0 0c-2-1-4-3-5-6 3 0 5 1 5 1s2-1 5-1c-1 3-3 5-5 6zm0 5c-2 0-5-1-7-3m7 3c2 0 5-1 7-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
 
-        <!-- Drafted copy carried over from the first Rooted site. Edit freely. -->
+        <!-- Drafted copy carried over from the first Rooted site, edit freely. -->
         <p class="section__intro">Rooted Massage &amp; Bodywork is a family-run massage studio serving Boise and
           the Treasure Valley. We opened with a simple idea: massage works best when your therapist has the
-          time, training, and freedom to treat what&rsquo;s actually going on instead of rushing you through a spa menu.</p>
+          time, training, and freedom to treat what&rsquo;s actually going on, not rush you through a spa menu.</p>
         <p class="section__intro">Rooted is the two of us. Arielle is the licensed massage therapist behind every
-          session; Eric keeps the schedule, the books, and the lights on. We&rsquo;re small by design, so nothing
+          session; Eric keeps the schedule, the books, and the lights on. We&rsquo;re small by design; nothing
           about your care gets handed off, rushed, or templated.</p>
         <p class="section__intro"><em>Arielle &amp; Eric, Rooted Massage &amp; Bodywork</em></p>
       </div>
@@ -142,27 +137,28 @@
         <span class="section__kicker">On the Menu</span>
         <h2 class="section__title">Massage, Done Thoroughly</h2>
         <p class="section__intro">Five massages, each built around you, plus add-ons from $5 to make any
-          session yours. <strong>New clients get 15% off a Signature Custom Massage and a free add-on.</strong>
-          <a href="#" data-open-signup>Grab your code</a>.</p>
+          session yours. <strong>New clients: 15% off your first Signature Custom Massage,
+          <a href="https://mangomint.co/MT9obD" target="_blank" rel="noopener">join our email list</a> for
+          the code.</strong></p>
 
         <div class="card-grid">
           <article class="card">
             <h3>Signature Custom Massage</h3>
-            <p class="card__price">$95 &middot; 60 min &nbsp;|&nbsp; $145 &middot; 90 min &nbsp;|&nbsp; $190 &middot; 120 min</p>
-            <p>Rooted&rsquo;s own signature style, closest to Swedish and fully customized to
-              you. Works with any add-on.</p>
+            <p class="card__price">60 min &middot; $95 &nbsp;|&nbsp; 90 min &middot; $145 &nbsp;|&nbsp; 120 min &middot; $190</p>
+            <p>Rooted&rsquo;s own signature style; most closely resembles Swedish, fully customized to
+              you. Customizable with any add-on.</p>
             <a class="btn book-btn" data-book="signature-60" href="/services#signature">Book Now</a>
           </article>
           <article class="card">
             <h3>Deep Tissue Massage</h3>
-            <p class="card__price">$155 &middot; 90 min &nbsp;|&nbsp; $200 &middot; 120 min</p>
+            <p class="card__price">90 min &middot; $155 &nbsp;|&nbsp; 120 min &middot; $200</p>
             <p>Slow, deliberate work through the deeper layers, with cupping and fascial scraping
               included free.</p>
             <a class="btn book-btn" data-book="deep-tissue-90" href="/services#deep-tissue">Book Now</a>
           </article>
           <article class="card">
             <h3>Lymphatic Drainage</h3>
-            <p class="card__price">$160 &middot; 90 min</p>
+            <p class="card__price">90 min &middot; $160</p>
             <p>Feather-light Manual Lymphatic Drainage, with fascial massage, dry brushing, red light,
               and Gua Sha included free.</p>
             <a class="btn book-btn" data-book="lymphatic-90" href="/services#lymphatic">Book Now</a>
@@ -225,7 +221,7 @@
     <!-- ============ CTA band ============ -->
     <section class="cta-band">
       <h2>Ready to Feel Better?</h2>
-      <p>Booking online takes less than a minute. Pick your service, pick your time, and we&rsquo;ll take
+      <p>Booking online takes less than a minute: pick your service, pick your time, and we&rsquo;ll take
         care of the rest.</p>
       <a class="btn btn--big book-btn" data-book="default" href="/services#menu">Book a Massage Today</a>
     </section>
@@ -233,7 +229,7 @@
   </main>
 
   <!-- ====================================================================
-       SHARED FOOTER: if you change this, change it in ALL 7 html files
+       SHARED FOOTER, if you change this, change it in ALL 7 html files
        ==================================================================== -->
   <footer class="footer">
     <div class="footer__grid">
@@ -256,10 +252,10 @@
         <h4>Visit</h4>
         <ul>
           <!-- PLACEHOLDER: real contact details + hours -->
-          <li>[PLACEHOLDER street address], Boise, ID</li>
-          <li><a href="tel:+12080000000">[PLACEHOLDER phone]</a></li>
-          <li><a href="mailto:hello@example.com">[PLACEHOLDER email]</a></li>
-          <li>Mon to Fri: [--] &middot; Sat: [--]</li>
+          <li>410 S Orchard St, Suite 264, Boise, ID 83705</li>
+          <li><a href="tel:+12082664525">(208) 266-4525</a></li>
+          <li><a href="mailto:office@rootedmassageandwellness.com">office@rootedmassageandwellness.com</a></li>
+          <li>Tue to Fri: 10 AM to 7 PM &middot; Sat: 9 AM to 5 PM</li>
         </ul>
       </div>
     </div>

@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Rooted Massage & Bodywork — design system + layout
+   Rooted Massage & Bodywork: design system + layout
    Structure modeled on en-spa.com (top contact strip, horizontal nav,
    hero band, service cards, accordion FAQ) restyled to the Rooted brand.
    ========================================================================== */
 
 /* ---- Design tokens -------------------------------------------------------
-   The whole palette lives here — sampled from the Rooted logo set.
+   The whole palette lives here, sampled from the Rooted logo set.
    Tune these and the entire site follows. */
 :root {
   /* Parchment & surfaces */
@@ -14,13 +14,13 @@
   --card:           #fdfaf3;  /* cards */
 
   /* Brand accents (sampled from the logo) */
-  --accent:        #3e5c41;  /* primary accent — deep forest green (buttons, links, banners) */
+  --accent:        #3e5c41;  /* primary accent: deep forest green (buttons, links, banners) */
   --accent-bright: #4e7050;  /* hover / highlights */
-  --bark:        #48361b;  /* dark brown — subtitle text, footer, prices */
-  --bark-deep:   #34160c;  /* darkest brown — contact strip, vignette */
+  --bark:        #48361b;  /* dark brown: subtitle text, footer, prices */
+  --bark-deep:   #34160c;  /* darkest brown: contact strip, vignette */
   --bark-soft:   #6f5b3e;  /* secondary brown */
   --sage:        #a4ac92;  /* soft green accents */
-  --leaf:        #5f7250;  /* deeper green — links, icons */
+  --leaf:        #5f7250;  /* deeper green: links, icons */
 
   /* Text */
   --ink:      #322a1e;
@@ -103,7 +103,7 @@ a:hover { color: var(--accent-bright); }
   padding: 7px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -370,7 +370,7 @@ a:hover { color: var(--accent-bright); }
 .section--center { text-align: center; }
 .section--center .section__intro { margin-left: auto; margin-right: auto; }
 
-/* Twig divider — echoes the wreath */
+/* Twig divider, echoes the wreath */
 .divider {
   display: flex;
   align-items: center;
@@ -438,7 +438,7 @@ a:hover { color: var(--accent-bright); }
   font-size: 19px;
   color: var(--bark-soft);
 }
-/* Price chips — "$95 · 60 min" pairs in the clean body font */
+/* Price chips, "$95 · 60 min" pairs in the clean body font */
 .price-row {
   display: flex;
   flex-wrap: wrap;
@@ -573,15 +573,20 @@ a:hover { color: var(--accent-bright); }
   border-color: var(--accent);
   box-shadow: var(--shadow);
 }
-.therapist-card img {
+.therapist-card__photo {
+  display: block;
   width: 130px;
   height: 130px;
-  object-fit: cover;
-  /* Vertical % nudges the crop window down the source photo — raise/lower
-     to reframe the face in the circle. */
-  object-position: 50% 12%;
-  border-radius: 50%;
   margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.therapist-card__photo img {
+  /* arielle-avatar.jpg is pre-cropped to her face; regenerate it if the
+     headshot changes. */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .therapist-card h3 { font-size: 26px; margin-bottom: 2px; }
 .therapist-card__role {
@@ -615,9 +620,12 @@ a:hover { color: var(--accent-bright); }
 /* Add-on menu grid */
 .addon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 18px;
   margin-top: 30px;
+}
+@media (max-width: 640px) {
+  .addon-grid { grid-template-columns: 1fr; }
 }
 .addon {
   background: var(--card);
@@ -837,16 +845,6 @@ a:hover { color: var(--accent-bright); }
 }
 
 /* ==========================================================================
-   404
-   ========================================================================== */
-.notfound {
-  text-align: center;
-  padding: 90px 20px;
-}
-.notfound img { width: 180px; margin: 0 auto 24px; }
-.notfound h1 { font-size: 54px; }
-
-/* ==========================================================================
    Email sign-up pop-up (markup is injected by js/main.js)
    ========================================================================== */
 .signup {
@@ -924,42 +922,6 @@ body.signup-open { overflow: hidden; }
   margin: 0 0 20px;
 }
 
-.signup__form { text-align: left; }
-.signup__label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--bark);
-  margin-bottom: 6px;
-}
-.signup__input {
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: var(--ink);
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 12px 14px;
-}
-.signup__input:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-  border-color: var(--accent);
-}
-.signup__error {
-  color: #9b3226;
-  font-size: 13px;
-  margin: 8px 0 0;
-}
-/* Bot trap — off-screen rather than display:none so bots still see it. */
-.signup__trap {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
 
 .signup__submit {
   display: block;
@@ -968,7 +930,6 @@ body.signup-open { overflow: hidden; }
   text-align: center;
   cursor: pointer;
 }
-.signup__submit[disabled] { opacity: 0.6; cursor: progress; }
 
 .signup__decline {
   background: none;
@@ -983,29 +944,6 @@ body.signup-open { overflow: hidden; }
 }
 .signup__decline:hover { color: var(--bark); }
 
-.signup__code {
-  font-family: var(--font-body);
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: 5px;
-  color: var(--accent);
-  background: var(--parchment-deep);
-  border: 1px dashed var(--accent);
-  border-radius: 10px;
-  padding: 14px 10px;
-  margin: 0 0 12px;
-}
-.signup__copy {
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  padding: 7px 18px;
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--bark);
-  cursor: pointer;
-}
-.signup__copy:hover { background: var(--parchment); }
 
 @keyframes signup-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes signup-rise {
@@ -1019,5 +957,4 @@ body.signup-open { overflow: hidden; }
 @media (max-width: 480px) {
   .signup__panel { padding: 28px 22px 24px; }
   .signup__title { font-size: 28px; }
-  .signup__code { font-size: 22px; letter-spacing: 3px; }
 }

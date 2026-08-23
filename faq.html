@@ -22,11 +22,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 
-  <!-- ================================================================
-       MANGOMINT: paste your integration script tag on the line below.
-       (Same tag as index.html. It goes on every page with Book buttons.)
-       ================================================================ -->
-  <!-- <script ...mangomint script tag goes here... ></script> -->
+  <!-- MangoMint booking overlay, installed. Book buttons open the scheduler
+       in-page; remove these two lines to fall back to new-tab booking. -->
+  <script>window.Mangomint = window.Mangomint || {}; window.Mangomint.CompanyId = 630678;</script>
+  <script src="https://booking.mangomint.com/app.js" async></script>
 
   <script type="application/ld+json">
   {
@@ -36,21 +35,25 @@
     "description": "Family-run therapeutic massage studio serving Boise and the Treasure Valley.",
     "image": "https://rootedmassagebodywork.com/assets/og-image.jpg",
     "url": "https://rootedmassagebodywork.com/",
-    "telephone": "[PLACEHOLDER phone]",
-    "email": "[PLACEHOLDER email]",
+    "telephone": "(208) 266-4525",
+    "email": "office@rootedmassageandwellness.com",
     "priceRange": "$95 - $205",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+    ],
     "areaServed": "Boise, Idaho and the Treasure Valley",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "[PLACEHOLDER street address]",
+      "streetAddress": "410 S Orchard St, Suite 264",
       "addressLocality": "Boise",
       "addressRegion": "ID",
-      "postalCode": "[PLACEHOLDER zip]"
+      "postalCode": "83705"
     }
   }
   </script>
 
-  <!-- FAQ structured data. Keep in sync with the visible questions below.
+  <!-- FAQ structured data, keep in sync with the visible questions below.
        Placeholder-heavy answers are omitted until finalized. -->
   <script type="application/ld+json">
   {
@@ -70,17 +73,17 @@
       {
         "@type": "Question",
         "name": "Should a massage be painful?",
-        "acceptedAnswer": { "@type": "Answer", "text": "A massage should never be more intense than you want it to be. Deeper work can involve a 'good hurt,' but pressure is always adjusted to you. Just say the word during your session." }
+        "acceptedAnswer": { "@type": "Answer", "text": "A massage should never be more intense than you want it to be. Deeper work can involve a 'good hurt,' but pressure is always adjusted to you; just say the word during your session." }
       },
       {
         "@type": "Question",
         "name": "Can I add hot stones, aromatherapy, or cupping?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes, add-ons run $5 to $35: aromatherapy ($5), hot stones or a peppermint scalp massage ($10), cupping or fascial scraping ($15), and a lymphatic face massage with a heated infrared Gua Sha tool ($35). You choose them while booking, after picking your massage. Deep Tissue and Lymphatic Drainage already include their specialty treatments free." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add-ons run $5 to $25: aromatherapy ($5), hot stones or a peppermint scalp massage ($10), cupping or fascial scraping ($15), and a lymphatic face massage with a heated infrared Gua Sha tool ($25). You choose them while booking, after picking your massage. Deep Tissue and Lymphatic Drainage already include their specialty treatments free." }
       },
       {
         "@type": "Question",
         "name": "Do you have a new-client special?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. First-time clients get 15% off a Signature Custom Massage plus one free add-on. Enter your email on our site and we'll send your code. One use per client, Signature massages only." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. First-time clients get 15% off a Signature Custom Massage. Join the Rooted email list to receive your discount code. One use per client, Signature massages only." }
       }
     ]
   }
@@ -90,26 +93,20 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ====================================================================
-       SHARED TOP STRIP: if you change this, change it in ALL 7 html files
+       SHARED TOP STRIP, if you change this, change it in ALL 7 html files
        ==================================================================== -->
   <div class="topstrip">
     <div class="topstrip__inner">
-      <div class="topstrip__social">
-        <!-- PLACEHOLDER: real Instagram / Facebook URLs -->
-        <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.8-.3 1.8-.1 1.2-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.8.3 1.8.3 1.2.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.8.3-1.8.1-1.2.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.8-.3-1.8-.3-1.2-.1-1.6-.1-4.8-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg></a>
-        <a href="https://facebook.com" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
-      </div>
       <div class="topstrip__contact">
-        <!-- PLACEHOLDER: real email / phone / address -->
-        <a href="mailto:hello@example.com">[PLACEHOLDER email]</a>
-        <a href="tel:+12080000000">[PLACEHOLDER phone]</a>
-        <span>[PLACEHOLDER street address], Boise, ID</span>
+        <a href="mailto:office@rootedmassageandwellness.com">office@rootedmassageandwellness.com</a>
+        <a href="tel:+12082664525">(208) 266-4525</a>
+        <span>410 S Orchard St, Suite 264, Boise, ID 83705</span>
       </div>
     </div>
   </div>
 
   <!-- ====================================================================
-       SHARED HEADER / NAV: if you change this, change it in ALL 7 html
+       SHARED HEADER / NAV, if you change this, change it in ALL 7 html
        files. Move aria-current="page" to the link matching each page.
        ==================================================================== -->
   <header class="siteheader">
@@ -166,27 +163,27 @@
           <details>
             <summary>Should a massage be painful?</summary>
             <p>A massage should never be more intense than you want it to be. Deeper work can involve some
-              &ldquo;good hurt&rdquo; as stubborn knots release, but pressure is always adjusted to you.
-              Just say the word at any point during your session.</p>
+              &ldquo;good hurt&rdquo; as stubborn knots release, but pressure is always adjusted to you;
+              just say the word at any point during your session.</p>
           </details>
           <details>
             <summary>Is there talking (or not talking) during my treatment?</summary>
             <p>Entirely up to you. Many clients prefer quiet; others like to chat. Arielle follows your
-              lead. The only thing she&rsquo;ll always check in about is pressure and comfort.</p>
+              lead, the only thing she&rsquo;ll always check in about is pressure and comfort.</p>
           </details>
           <details>
             <summary>Can I add hot stones, aromatherapy, or cupping?</summary>
-            <p>Yes, add-ons run $5 to $35: aromatherapy ($5), hot stones or a peppermint scalp massage
-              ($10), cupping or fascial scraping ($15), and a lymphatic face massage with a heated
-              infrared Gua Sha tool ($35). You choose them while booking, right after picking your
+            <p>Yes. Add-ons run $5 to $25: aromatherapy ($5), hot stones or a peppermint scalp massage
+              ($10), cupping or fascial scraping ($15), and a lymphatic face massage with our heated
+              infrared Gua Sha tool ($25). You choose them while booking, right after picking your
               massage. Note that Deep Tissue and Lymphatic Drainage already include their specialty
               treatments free, and Relax &amp; Reset includes free aromatherapy.</p>
           </details>
           <details>
             <summary>Do you have a new-client special?</summary>
-            <p>Yes! First-time clients get <strong>15% off a Signature Custom Massage plus one free
-              add-on</strong>. <a href="#" data-open-signup>Enter your email</a> and we&rsquo;ll send
-              your code. One use per client, Signature massages only.</p>
+            <p>Yes! First-time clients get <strong>15% off a Signature Custom Massage</strong>:
+              <a href="https://mangomint.co/MT9obD" target="_blank" rel="noopener">join our email list</a>
+              to get your discount code. One use per client, Signature massages only.</p>
           </details>
         </div>
 
@@ -200,13 +197,13 @@
           </details>
           <details>
             <summary>How do I book an appointment?</summary>
-            <p>Online booking is the fastest way. Hit any &ldquo;Book Now&rdquo; button to pick your
+            <p>Online booking is the fastest way; hit any &ldquo;Book Now&rdquo; button to pick your
               service and time. You can also reach out through the <a href="/contact">contact page</a>
               and we&rsquo;ll get you scheduled.</p>
           </details>
           <details>
             <summary>Can I use my HSA or FSA?</summary>
-            <p>[PLACEHOLDER: confirm. Many HSA/FSA plans cover massage with a letter of medical
+            <p>[PLACEHOLDER: confirm; many HSA/FSA plans cover massage with a letter of medical
               necessity from your provider.]</p>
           </details>
           <details>
@@ -219,8 +216,8 @@
           </details>
           <details>
             <summary>Do you offer gift cards?</summary>
-            <p>Yes! E-gift cards are available online any time on the
-              <a href="/gift-cards">gift cards page</a>, and physical cards are sold in studio. They
+            <p>Yes! E-gift cards are available online any time; see the
+              <a href="/gift-cards">gift cards page</a>. Physical cards are sold in studio. They
               make a wonderful gift for birthdays, anniversaries, or anyone who could use an hour of
               genuine rest. Gift cards never expire.</p>
           </details>
@@ -231,7 +228,7 @@
     <!-- ============ CTA band ============ -->
     <section class="cta-band">
       <h2>Still Have Questions?</h2>
-      <p>Reach out any time. We&rsquo;re happy to help you figure out what&rsquo;s right for your body.</p>
+      <p>Reach out any time; we&rsquo;re happy to help you figure out what&rsquo;s right for your body.</p>
       <div class="btn-row" style="justify-content: center;">
         <a class="btn btn--big btn--ghost" href="/contact" style="color: #f0e7d3; border-color: #f0e7d3;">Contact Us</a>
         <a class="btn btn--big book-btn" data-book="default" href="/services#menu">Book a Massage</a>
@@ -241,7 +238,7 @@
   </main>
 
   <!-- ====================================================================
-       SHARED FOOTER: if you change this, change it in ALL 7 html files
+       SHARED FOOTER, if you change this, change it in ALL 7 html files
        ==================================================================== -->
   <footer class="footer">
     <div class="footer__grid">
@@ -264,10 +261,10 @@
         <h4>Visit</h4>
         <ul>
           <!-- PLACEHOLDER: real contact details + hours -->
-          <li>[PLACEHOLDER street address], Boise, ID</li>
-          <li><a href="tel:+12080000000">[PLACEHOLDER phone]</a></li>
-          <li><a href="mailto:hello@example.com">[PLACEHOLDER email]</a></li>
-          <li>Mon to Fri: [--] &middot; Sat: [--]</li>
+          <li>410 S Orchard St, Suite 264, Boise, ID 83705</li>
+          <li><a href="tel:+12082664525">(208) 266-4525</a></li>
+          <li><a href="mailto:office@rootedmassageandwellness.com">office@rootedmassageandwellness.com</a></li>
+          <li>Tue to Fri: 10 AM to 7 PM &middot; Sat: 9 AM to 5 PM</li>
         </ul>
       </div>
     </div>
