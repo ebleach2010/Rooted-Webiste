@@ -109,8 +109,7 @@
         {
           "id": "HOME-04",
           "label": "Hero tagline",
-          "text": "Take an hour. Feel like yourself again.",
-          "note": "PLACEHOLDER: draft, Eric to react or rewrite"
+          "text": "Take an hour. Feel like yourself again."
         },
         {
           "id": "HOME-05",
@@ -136,16 +135,6 @@
           "id": "HOME-09",
           "label": "Our Studio: paragraph 1",
           "text": "Rooted Massage & Bodywork is a family-run massage studio serving Boise and the Treasure Valley. We opened with a simple idea: massage works best when your therapist has the time, training, and freedom to treat what's actually going on, not rush you through a spa menu."
-        },
-        {
-          "id": "HOME-10",
-          "label": "Our Studio: paragraph 2",
-          "text": "Rooted is the two of us. Arielle is the licensed massage therapist behind every session; Eric keeps the schedule, the books, and the lights on. We're small by design; nothing about your care gets handed off, rushed, or templated."
-        },
-        {
-          "id": "HOME-11",
-          "label": "Our Studio: signoff",
-          "text": "Arielle & Eric, Rooted Massage & Bodywork"
         },
         {
           "id": "HOME-12",
