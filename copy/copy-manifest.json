@@ -207,14 +207,12 @@
         {
           "id": "HOME-23",
           "label": "Therapist teaser: bio paragraph",
-          "text": "Arielle meets your body where it is. With advanced training in myofascial techniques and a specialty in calming the nervous system and lymphatic drainage, she blends focused therapeutic work with the kind of unhurried care that lets your whole system settle.",
-          "note": "PLACEHOLDER note: confirm/expand specialties"
+          "text": "Arielle meets your body where it is. With advanced training in myofascial techniques and a specialty in calming the nervous system and lymphatic drainage, she blends focused therapeutic work with the kind of unhurried care that lets your whole system settle."
         },
         {
           "id": "HOME-24",
           "label": "Therapist teaser: second paragraph",
-          "text": "[PLACEHOLDER: a second paragraph in Arielle's own words: her training, her style on the table, and what clients can expect at Rooted.]",
-          "note": "PLACEHOLDER"
+          "text": "Her work ranges from very light lymphatic drainage to deeper, more targeted massage, and she doesn't believe deeper always means better; each session adjusts to what your body is actually responding to that day."
         },
         {
           "id": "HOME-25",
@@ -481,31 +479,31 @@
         {
           "id": "ARI-07",
           "label": "Bio paragraph 1",
-          "text": "I'm the licensed massage therapist and owner behind Rooted Massage & Bodywork. My approach is simple: meet your body where it is, and give it the time and attention it needs to actually change. With advanced training in myofascial techniques and a specialty in calming the nervous system and lymphatic drainage, I blend focused therapeutic work with genuinely unhurried care."
+          "text": "I'm Arielle, the owner of Rooted and a licensed massage therapist. I've been practicing for nearly five years, and over that time I've learned that good massage has a lot less to do with following a routine and a lot more to do with paying attention to the person in front of you."
         },
         {
           "id": "ARI-08",
           "label": "Bio paragraph 2",
-          "text": "[PLACEHOLDER: How Arielle came to massage: school, licensure year, what pulled her into bodywork.]",
-          "note": "PLACEHOLDER"
+          "text": "My work ranges from very light lymphatic drainage to deeper, more targeted massage, with a lot of myofascial and nervous-system-focused work mixed in. I don't believe deeper always means better, and I adjust each session based on what your body is actually responding to that day.",
+          "note": "was a PLACEHOLDER; now Arielle's real bio"
         },
         {
           "id": "ARI-09",
           "label": "Bio paragraph 3",
-          "text": "[PLACEHOLDER: Her approach: specialties, pressure style, the kinds of clients and problems she loves working with.]",
-          "note": "PLACEHOLDER"
+          "text": "Caregiving has always come naturally to me, and massage ended up being a way to turn that part of myself into work I genuinely enjoy. More than anything, I want people to feel comfortable, listened to, and like they had someone actually paying attention to them while they were here.",
+          "note": "was a PLACEHOLDER; now Arielle's real bio"
         },
         {
           "id": "ARI-10",
           "label": "Bio paragraph 4",
-          "text": "[PLACEHOLDER: The Rooted story: why she and Eric started their own studio, what “rooted” means to them, life in the Treasure Valley.]",
-          "note": "PLACEHOLDER"
+          "text": "(removed: the bio is now the three paragraphs ARI-07 to ARI-09)",
+          "note": "block no longer on the page"
         },
         {
           "id": "ARI-11",
           "label": "Closing quote",
-          "text": "“[PLACEHOLDER: a closing line in Arielle's own words.]” Arielle",
-          "note": "PLACEHOLDER"
+          "text": "(removed: no closing quote yet; easy to add back if Arielle writes one)",
+          "note": "block no longer on the page"
         },
         {
           "id": "ARI-12",
