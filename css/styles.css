@@ -582,8 +582,8 @@ a:hover { color: var(--accent-bright); }
   overflow: hidden;
 }
 .therapist-card__photo img {
-  /* arielle-avatar.jpg is pre-cropped to her face; regenerate it if the
-     headshot changes. */
+  /* Use a square, pre-cropped headshot so the face sits centered in the
+     circle. */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -658,6 +658,12 @@ a:hover { color: var(--accent-bright); }
   gap: 44px;
   align-items: start;
   margin-top: 34px;
+}
+/* Bio layout with no photo: one readable column instead of a dead gap.
+   Drop this class from the wrapper div if a portrait is added back. */
+.bio-grid--text-only {
+  grid-template-columns: 1fr;
+  max-width: 780px;
 }
 .bio-grid__photo img {
   border-radius: var(--radius);
