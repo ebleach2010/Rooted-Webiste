@@ -85,8 +85,10 @@ certificate; that usually resolves within the hour. Do not skip this.
 1. Google Business Profile: change the website field to https://rootedmassagebodywork.com
 2. Google Search Console: add the domain as a property and submit
    `https://rootedmassagebodywork.com/sitemap.xml`
-3. MangoMint: confirm the ROOTED410 offer has "Once per client" and
-   "New clients only" both enabled
+3. MangoMint: confirm the new client offer has "Once per client" and
+   "New clients only" both enabled. (The code itself is deliberately not
+   written down in this repo, which is public. It lives in
+   `Rooted TP/Rooted Website: Private Notes.md`.)
 
 ## Rollback
 
