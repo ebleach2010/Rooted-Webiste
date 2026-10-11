@@ -260,9 +260,10 @@ This is on purpose, to stop throwaway emails from harvesting the code. Do not
 
 - [ ] **Client portal link.** `BOOKING.portal` is `null`; the nav button
       falls back to `/contact`. Needs the real MangoMint client portal URL.
-- [ ] **FAQ placeholders.** Three answers still say `[PLACEHOLDER]`: first
-      appointment intake flow, gratuity preference, and location/parking.
-      Search `grep -rn PLACEHOLDER *.html`. (HSA/FSA is answered.)
+- [ ] **FAQ placeholder.** One answer still says `[PLACEHOLDER]`: the first
+      appointment intake flow. Search `grep -rn PLACEHOLDER *.html`.
+      HSA/FSA and gratuity are answered; the location/parking question was
+      removed on purpose.
 - [ ] **Home page parking note.** `index.html` has a placeholder comment for
       neighborhood and parking detail.
 - [ ] **MangoMint email automation.** A Flow named "Email discount code on
